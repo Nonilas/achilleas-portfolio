@@ -28,7 +28,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-xl text-gray-600 dark:text-gray-300 mb-8"
             >
-              A passionate web developer creating modern, responsive, and user-friendly applications.
+              A passionate Data Science & AI student specializing in machine learning, computer vision, and full-stack development.
             </motion.p>
             
             <motion.div 
@@ -71,7 +71,7 @@ export default function Hero() {
                 <span className="sr-only">LinkedIn</span>
               </Link>
               <Link 
-                href="mailto:your.email@example.com" 
+                href="mailto:achilleasleiv@gmail.com" 
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300"
               >
                 <Mail className="h-6 w-6" />
@@ -91,7 +91,7 @@ export default function Hero() {
               {/* Replace this with your own graphic or animated image */}
               <div className="w-full h-96 bg-gradient-to-br from-blue-400 to-purple-500 rounded-lg shadow-xl flex items-center justify-center">
                 <div className="text-white text-xl font-bold">
-                  <code className="font-mono text-3xl">{'<WebDeveloper />'}</code>
+                  <code className="font-mono text-3xl">{'<DataScientist />'}</code>
                 </div>
               </div>
             </div>

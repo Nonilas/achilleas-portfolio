@@ -8,7 +8,6 @@ const nextConfig = {
   // Disable trailing slashes in URLs
   trailingSlash: false,
   // Ensure CSS is properly included in output
-  optimizeFonts: false,
   compiler: {
     // Turn off styled-components
     styledComponents: false,

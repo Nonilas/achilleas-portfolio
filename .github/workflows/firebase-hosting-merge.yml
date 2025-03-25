@@ -18,11 +18,17 @@ jobs:
           node-version: 18
           cache: 'npm'
       
-      - name: Install dependencies
-        run: npm install
+      - name: Clean install dependencies
+        run: npm ci
+      
+      - name: Update Tailwind CSS to latest version
+        run: npm install tailwindcss@latest postcss@latest autoprefixer@latest --save-dev
       
       - name: Build Next.js application
         run: npm run build
+        
+      - name: Debug - List output directory
+        run: find out -type f | sort
         
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:

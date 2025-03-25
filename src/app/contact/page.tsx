@@ -80,7 +80,7 @@ export default function ContactPage() {
                   <Mail className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-3 mt-1" />
                   <div>
                     <h3 className="font-medium text-gray-900 dark:text-white">Email</h3>
-                    <p className="text-gray-600 dark:text-gray-300">your.email@example.com</p>
+                    <p className="text-gray-600 dark:text-gray-300">achilleasleiv@gmail.com</p>
                   </div>
                 </div>
                 
@@ -88,7 +88,7 @@ export default function ContactPage() {
                   <Phone className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-3 mt-1" />
                   <div>
                     <h3 className="font-medium text-gray-900 dark:text-white">Phone</h3>
-                    <p className="text-gray-600 dark:text-gray-300">+1 (555) 123-4567</p>
+                    <p className="text-gray-600 dark:text-gray-300">+30 6987618360</p>
                   </div>
                 </div>
                 
@@ -96,7 +96,7 @@ export default function ContactPage() {
                   <MapPin className="h-6 w-6 text-blue-600 dark:text-blue-400 mr-3 mt-1" />
                   <div>
                     <h3 className="font-medium text-gray-900 dark:text-white">Location</h3>
-                    <p className="text-gray-600 dark:text-gray-300">Athens, Greece</p>
+                    <p className="text-gray-600 dark:text-gray-300">Maastricht, Netherlands</p>
                   </div>
                 </div>
               </div>

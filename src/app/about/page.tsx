@@ -1,42 +1,50 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function AboutPage() {
-  // Array of experiences
+  // Array of experiences (updated with real experience)
   const experiences = [
     {
-      title: 'Senior Web Developer',
-      company: 'Company Name',
-      period: '2022 - Present',
-      description: 'Led development of enterprise web applications using React, Node.js, and AWS. Improved site performance by 40% through code optimization and modern front-end architecture.'
+      title: 'AI & Environmental Analyst Trainee',
+      company: 'EUROCONTROL MUAC',
+      period: 'Feb 2025 - Present',
+      description: 'Developing and refining machine learning models for contrail detection and tracking. Utilizing Azure Databricks, Apache Spark, Detectron2, and deepSORT within Microsoft\'s Azure ecosystem. Enhancing instance segmentation accuracy to increase mean Average Precision (mAP).'
     },
     {
-      title: 'Full Stack Developer',
-      company: 'Previous Company',
-      period: '2020 - 2022',
-      description: 'Developed and maintained multiple web applications. Collaborated with UI/UX designers to implement responsive designs and ensure cross-browser compatibility.'
+      title: 'Marketing Manager',
+      company: 'SCOPE',
+      period: 'Sep 2024 - Present',
+      description: 'Leading promotion and organization of international tech and sales events. Collaborating with cross-functional teams to boost attendance and secure partnerships. Developing marketing strategies to increase event visibility and sponsorship.'
     },
     {
-      title: 'Junior Developer',
-      company: 'First Company',
-      period: '2018 - 2020',
-      description: 'Built and maintained websites for various clients. Worked on optimizing database queries and implementing security best practices.'
+      title: 'Software Developer Intern',
+      company: 'Next Generation Sensors B.V.',
+      period: 'June 2024 - August 2024',
+      description: 'Built a new website including support pages, authentication systems, admin dashboards, and client messaging tools. Implemented secure RESTful APIs and database schemas using TypeScript, Angular, and MongoDB.'
     },
   ];
 
-  // Array of education
+  // Array of education (updated with real education)
   const education = [
     {
-      degree: 'MSc in Computer Science',
-      institution: 'University Name',
-      year: '2017 - 2018',
-      details: 'Specialized in Web Technologies and Information Systems.'
+      degree: 'Data Science & Artificial Intelligence Bachelor',
+      institution: 'Maastricht University',
+      year: 'Sep 2022 - present',
+      details: 'Current Modules: Data Analysis, Intelligent Systems. Completed Modules: Calculus (9), Computer Security (9), Data Structures and Algorithms (9), Databases (7), Human Computer Interaction & Affective Computing (10), and more.'
     },
     {
-      degree: 'BSc in Computer Science',
-      institution: 'University Name',
-      year: '2014 - 2017',
-      details: 'Graduated with honors. Focused on software development and algorithms.'
+      degree: 'Project SMART – Biotechnology',
+      institution: 'University of New Hampshire',
+      year: 'July 2020',
+      details: 'Online summer program focused on biotechnology and molecular biology research. Explored cutting-edge research topics in biotechnology and environmental applications.'
+    },
+    {
+      degree: 'IB Diploma Program',
+      institution: 'Anatolia College High School',
+      year: 'Sep 2017 - July 2020',
+      details: 'Recognized for Academic Excellence by the Greek Ministry of Education (National Merit Program).'
     },
   ];
 
@@ -72,16 +80,16 @@ export default function AboutPage() {
                   Achilleas Leivadiotis
                 </h2>
                 <h3 className="text-xl text-blue-600 dark:text-blue-400 mb-4">
-                  Web Developer &amp; Designer
+                  Data Science & AI Student
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  I&apos;m a passionate web developer with expertise in creating responsive, user-friendly websites and applications. With a strong background in both front-end and back-end development, I enjoy bringing ideas to life through clean, efficient code.
+                  I&apos;m a Data Science and Artificial Intelligence student at Maastricht University with a passion for machine learning, computer vision, and full-stack development. My background spans AI research, marketing management, and software development internships.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300 mb-4">
-                  My journey in web development started over 5 years ago, and since then, I&apos;ve had the opportunity to work on a wide range of projects, from small business websites to complex enterprise applications.
+                  Currently working as an AI & Environmental Analyst Trainee at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
                 </p>
                 <p className="text-gray-600 dark:text-gray-300">
-                  When I&apos;m not coding, you can find me exploring new technologies, contributing to open-source projects, or enjoying the outdoors.
+                  My technical expertise includes Python, TypeScript, SQL, and various AI frameworks (PyTorch, TensorFlow). I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
                 </p>
               </div>
             </div>

@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
@@ -51,7 +53,7 @@ export default function Hero() {
               className="flex space-x-4"
             >
               <Link 
-                href="https://github.com/YOUR_GITHUB_USERNAME" 
+                href="https://github.com/Nonilas" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300"
@@ -60,7 +62,7 @@ export default function Hero() {
                 <span className="sr-only">GitHub</span>
               </Link>
               <Link 
-                href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" 
+                href="https://linkedin.com/in/achilleas-leivadiotis" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors duration-300"
@@ -97,4 +99,5 @@ export default function Hero() {
         </div>
       </div>
     </section>
-  );}
+  );
+}

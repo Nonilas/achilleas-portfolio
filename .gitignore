@@ -32,7 +32,6 @@ yarn-error.log*
 firebase-debug.log*
 .firebasesrc
 firebase-debug.log
-firebase.json
 # env files (can opt-in for committing if needed)
 .env*
 

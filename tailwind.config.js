@@ -1,13 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: 'class', // Add this line for your dark mode toggle
+  darkMode: 'class',
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    './app/**/*.{js,ts,jsx,tsx}',
-    "./Components/**/*.{js,ts,jsx,tsx}",
-    "./utils/**/*.{js,ts,jsx,tsx}",
-    "./layouts/**/*.{js,ts,jsx,tsx}",
-    "./github/**/*.{js,ts,jsx,tsx}",
+   "./pages//*.{js,ts,jsx,tsx,mdx}",
+    "./components//*.{js,ts,jsx,tsx,mdx}",
+    "./app//*.{js,ts,jsx,tsx,mdx}",
+    "*.{js,ts,jsx,tsx,mdx}"
+ // This will catch all JS/TS files in any directory
   ],
   theme: {
     extend: {

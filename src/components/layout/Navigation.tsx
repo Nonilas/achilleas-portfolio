@@ -34,7 +34,7 @@ export default function Navigation() {
     { name: 'Home', path: '/' },
     { name: 'Projects', path: '/projects' },
     { name: 'About', path: '/about' },
-    //{ name: 'Contact', path: '/contact' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (

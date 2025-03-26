@@ -18,7 +18,7 @@ export default function Hero() {
               transition={{ duration: 0.5 }}
               className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 dark:text-white mb-6"
             >
-              <span className="block">Hi, I&apos;m</span>
+              <span className="block">Hi, I&apos;m </span>
               <span className="block text-blue-600 dark:text-blue-400">Achilleas Leivadiotis</span>
             </motion.h1>
             

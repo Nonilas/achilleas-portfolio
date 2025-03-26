@@ -35,7 +35,7 @@ export default function AboutPage() {
       details: 'Current Modules: Data Analysis, Intelligent Systems. Completed Modules: Calculus (9), Computer Security (9), Data Structures and Algorithms (9), Databases (7), Human Computer Interaction & Affective Computing (10), and more.'
     },
     {
-      degree: 'Project SMART – Biotechnology',
+      degree: 'Project SMART Biotechnology',
       institution: 'University of New Hampshire',
       year: 'July 2020',
       details: 'Online summer program focused on biotechnology and molecular biology research. Explored cutting-edge research topics in biotechnology and environmental applications.'

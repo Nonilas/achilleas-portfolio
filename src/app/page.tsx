@@ -93,9 +93,7 @@ export default function Home() {
       <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
         These are some of the technologies I work with regularly.
       </p>
-      <p className="text-lg text-white-600 dark:text-gray-300 max-w-2xl mx-auto">
-        Can you find the circle between the skills?
-      </p>
+      
     </motion.div>
     
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">

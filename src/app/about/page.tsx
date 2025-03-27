@@ -131,6 +131,7 @@ export default function AboutPage() {
               </div>
               
               {/* Skills categories */}
+              
               <div className="mt-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                 {skillCategories.map((category, index) => (
                   <motion.div
@@ -138,17 +139,23 @@ export default function AboutPage() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.4, delay: index * 0.1 }}
-                    className="bg-gray-50 dark:bg-gray-750 rounded-lg p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300"
+                    className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 border border-gray-100 dark:border-gray-700 hover:shadow-md transition-shadow duration-300"
                   >
                     <div className="flex items-center mb-3">
                       {category.icon}
                       <h4 className="font-medium ml-2 text-gray-800 dark:text-gray-200">{category.title}</h4>
                     </div>
-                    <ul className="text-sm space-y-1">
+                    {/* Replace the ul/li with styled badges */}
+                    <div className="flex flex-wrap gap-2 mt-2">
                       {category.skills.map(skill => (
-                        <li key={skill} className="text-gray-600 dark:text-gray-400">{skill}</li>
+                        <span 
+                          key={skill} 
+                          className="inline-block px-3 py-1 text-xs font-medium bg-blue-50 hover:bg-blue-100 dark:bg-blue-900/30 dark:hover:bg-blue-800/50 text-blue-600 dark:text-blue-300 rounded-full border border-blue-100 dark:border-blue-800/50 transition-colors duration-200"
+                        >
+                          {skill}
+                        </span>
                       ))}
-                    </ul>
+                    </div>
                   </motion.div>
                 ))}
               </div>

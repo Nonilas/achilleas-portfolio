@@ -41,6 +41,9 @@ export default function Hero() {
                 View My Work
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
+              <Link href="/about" className="inline-flex items-center justify-center px-6 py-3 mx-4 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300">
+                About Me
+              </Link>
               <Link href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300">
                 Contact Me
               </Link>

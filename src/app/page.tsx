@@ -79,45 +79,50 @@ export default function Home() {
       </section>
       
       {/* Skills Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
-          >
-            <h2 className="font-bold text-gray-900 dark:text-white mb-4">
-              Skills &amp; Technologies
-            </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              These are some of the technologies I work with regularly.
-            </p>
-          </motion.div>
-          
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              'Python', 'PyTorch', 'TensorFlow', 'scikit-learn',
-              'TypeScript', 'JavaScript', 'React', 'Next.js',
-              'SQL', 'MongoDB', 'Azure', 'Angular',
-              'Git', 'MATLAB', 'HTML/CSS', 'REST APIs'
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 flex items-center justify-center"
-              >
-                <span className="text-gray-700 dark:text-gray-200 font-medium">
-                  {skill}
-                </span>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-      
+<section className="py-16">
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="text-center mb-12"
+    >
+      <h2 className="font-bold text-gray-900 dark:text-white mb-4">
+        Skills &amp; Technologies
+      </h2>
+      <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+        These are some of the technologies I work with regularly.
+      </p>
+      <p className="text-lg text-white-600 dark:text-gray-300 max-w-2xl mx-auto">
+        Can you find the circle between the skills?
+      </p>
+    </motion.div>
+    
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      {[
+        'Python', 'PyTorch', 'TensorFlow', 'scikit-learn',
+        'TypeScript', 'JavaScript', 'React', 'Next.js',
+        'SQL', 'MongoDB', 'Azure', 'Angular',
+        'Git', 'MATLAB', 'HTML/CSS', 'REST APIs'
+      ].map((skill, index) => (
+        <motion.div
+          key={skill}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: index * 0.1 }}
+          className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center justify-center
+                     transition-all duration-300 ease-in-out
+                     hover:bg-gray-50 dark:hover:bg-gray-700
+                     hover:shadow-lg hover:translate-y-[-2px]"
+        >
+          <span className="text-gray-700 dark:text-gray-200 font-medium">
+            {skill}
+          </span>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
       {/* CTA Section */}
       <section className="py-16 bg-blue-600 dark:bg-blue-700">
         <div className="container mx-auto px-4">

@@ -135,7 +135,8 @@
     line-height: 1.2;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
-    color: rgb(var(--foreground-rgb));
+    /* THIS BREAKS DARKMODE color: rgb(var(--foreground-rgb)); */
+    
   }
   
   h1 {

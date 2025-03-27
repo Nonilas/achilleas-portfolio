@@ -1,6 +1,6 @@
 @import 'tailwindcss';
 
-@custom-variant dark (&:is(.dark *));
+/* Dark mode styles will be handled by Tailwind's dark mode configuration */
 
 @theme {
   --font-sans: var(--font-geist-sans);
@@ -135,7 +135,7 @@
     line-height: 1.2;
     margin-top: 1.5em;
     margin-bottom: 0.5em;
-    color: rgb(var(--foreground-rgb));
+    
   }
   
   h1 {

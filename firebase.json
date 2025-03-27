@@ -12,6 +12,10 @@
         "destination": "/index.html"
       }
     ],
+    "environment": {
+      "EMAIL_USER": "${FIREBASE_EMAIL_USER}",
+      "EMAIL_PASS": "${FIREBASE_EMAIL_PASS}"
+    },
     "headers": [
       {
         "source": "**/*.css",

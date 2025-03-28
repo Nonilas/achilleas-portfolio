@@ -16,7 +16,7 @@ export default function Home() {
       try {
         const githubProjects = await getFeaturedProjects('Nonilas');
         // Only slice the projects to get the top 3
-        setProjects(githubProjects.slice(0, 3));
+        setProjects(githubProjects.slice(0, 4));
       } catch (error) {
         console.error('Error fetching projects:', error);
         // Projects will remain an empty array

@@ -2,6 +2,8 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
 import * as admin from 'firebase-admin';
+// src/app/api/contact/route.ts
+export const runtime = 'nodejs'; // Ensures server-side Node environment
 
 if (!admin.apps.length) {
     admin.initializeApp();

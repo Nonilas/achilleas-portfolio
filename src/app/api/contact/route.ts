@@ -1,76 +1,43 @@
 // src/app/api/contact/route.ts
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-
-// These exports are critical for Vercel deployment
-export const dynamic = 'force-dynamic'; // Ensures the route is not statically optimized
-export const runtime = 'nodejs'; // Explicitly sets Node.js runtime
-
-// Handle OPTIONS requests for CORS preflight
-export async function OPTIONS() {
-  return new NextResponse(null, {
-    status: 200,
-    headers: {
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Methods': 'POST, OPTIONS',
-      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
-      'Access-Control-Max-Age': '86400'
-    }
-  });
-}
-
-// Main POST handler for the contact form
+import * as admin from 'firebase-admin';
+// src/app/api/contact/route.ts
+export const runtime = 'nodejs'; // Ensures server-side Node environment
+export const dynamic = 'force-dynamic'; 
+if (!admin.apps.length) {
+    admin.initializeApp();
+  }
 export async function POST(request: Request) {
   try {
-    // Parse form data with proper error handling
-    let formData;
-    try {
-      formData = await request.json();
-    } catch (error) {
-      console.error('JSON parsing error:', error);
-      return NextResponse.json(
-        { error: 'Invalid request format' },
-        { status: 400 }
-      );
-    }
-
+    // Parse form data
+    const formData = await request.json();
     const { name, email, subject, message } = formData;
-
+    const config = process.env.FIREBASE_CONFIG 
+        ? JSON.parse(process.env.FIREBASE_CONFIG)
+        : { email: { user: process.env.EMAIL_USER, pass: process.env.EMAIL_PASS } };
+  
     // Validate required fields
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and message are required' },
+        { error: 'All fields are required' },
         { status: 400 }
-      );
-    }
-
-    // Email configuration - directly from environment variables
-    const emailUser = process.env.EMAIL_USER;
-    const emailPass = process.env.EMAIL_PASS;
-    const recipientEmail = process.env.RECIPIENT_EMAIL || 'achilleasleiv@gmail.com';
-
-    // Validate email credentials exist
-    if (!emailUser || !emailPass) {
-      console.error('Missing email credentials');
-      return NextResponse.json(
-        { error: 'Server configuration error' },
-        { status: 500 }
       );
     }
 
     // Create email transporter
     const transporter = nodemailer.createTransport({
-      service: 'gmail',
-      auth: {
-        user: emailUser,
-        pass: emailPass
-      }
-    });
+        service: 'gmail',
+        auth: {
+          user: config.email.user || process.env.EMAIL_USER,
+          pass: config.email.pass || process.env.EMAIL_PASS
+        }
+      });
 
     // Configure email content
     const mailOptions = {
-      from: emailUser,
-      to: recipientEmail,
+      from: process.env.EMAIL_USER,
+      to: 'achilleasleiv@gmail.com',
       subject: `Portfolio Contact: ${subject || 'New Message'}`,
       text: `
         Name: ${name}
@@ -93,42 +60,16 @@ export async function POST(request: Request) {
       `
     };
 
-    // Send email with proper error handling
-    try {
-      await transporter.sendMail(mailOptions);
-    } catch (error) {
-      console.error('Error sending email:', error);
-      return NextResponse.json(
-        { error: 'Failed to send email' },
-        { status: 500 }
-      );
-    }
+    // Send email
+    await transporter.sendMail(mailOptions);
     
-    // Return success response with CORS headers
-    return NextResponse.json(
-      { success: true, message: 'Message sent successfully' },
-      { 
-        status: 200,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type'
-        }
-      }
-    );
+    // Return success response
+    return NextResponse.json({ success: true });
   } catch (error) {
-    // Global error handler
     console.error('Contact form error:', error);
     return NextResponse.json(
-      { error: 'An unexpected error occurred' },
-      { 
-        status: 500,
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-          'Access-Control-Allow-Methods': 'POST, OPTIONS',
-          'Access-Control-Allow-Headers': 'Content-Type'
-        }
-      }
+      { error: 'Failed to send message' },
+      { status: 500 }
     );
   }
 }

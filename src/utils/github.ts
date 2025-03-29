@@ -16,24 +16,25 @@ export interface GitHubProject {
 
 // Get featured projects from GitHub
 export async function getFeaturedProjects(username: string): Promise<GitHubProject[]> {
-  // Initialize Octokit with a Personal Access Token if you have one
-  // For public repos, you can use without authentication but with rate limits
+  console.log('Starting getFeaturedProjects with username:', username);
+  console.log('GitHub Token exists:', !!process.env.NEXT_PUBLIC_GITHUB_TOKEN);
+
   const octokit = new Octokit({
-    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN, // Changed from GITHUB_TOKEN
+    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
   });
 
   try {
-    // Get user's repositories
+    console.log('Fetching repositories...');
     const { data: repos } = await octokit.rest.repos.listForUser({
       username,
       sort: 'updated',
       per_page: 100,
     });
-
-    // Filter out forks and select projects with topics or descriptions
+    
+    console.log('Fetched repos count:', repos.length);
+    
     const featuredProjects = repos
-      .filter(repo => !repo.fork && ((repo.topics && repo.topics.length > 0) || repo.description))
-      // Only include the properties we need
+      .filter(repo => !repo.fork || ((repo.topics && repo.topics.length > 0) || repo.description))
       .map(repo => ({
         id: repo.id,
         name: repo.name,
@@ -47,10 +48,11 @@ export async function getFeaturedProjects(username: string): Promise<GitHubProje
         updated_at: repo.updated_at || '',
       }));
 
+    console.log('Filtered projects count:', featuredProjects.length);
     return featuredProjects;
   } catch (error) {
-    console.error('Error fetching GitHub projects:', error);
-    return [];
+    console.error('Detailed error in getFeaturedProjects:', error);
+    throw error; // Re-throw to handle in the component
   }
 }
 

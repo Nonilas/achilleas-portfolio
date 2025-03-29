@@ -19,7 +19,7 @@ export async function getFeaturedProjects(username: string): Promise<GitHubProje
   // Initialize Octokit with a Personal Access Token if you have one
   // For public repos, you can use without authentication but with rate limits
   const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN, // Optional: Set this in your .env.local
+    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN, // Changed from GITHUB_TOKEN
   });
 
   try {
@@ -57,7 +57,7 @@ export async function getFeaturedProjects(username: string): Promise<GitHubProje
 // Get specific project details
 export async function getProjectDetails(username: string, repoName: string): Promise<GitHubProject | null> {
   const octokit = new Octokit({
-    auth: process.env.GITHUB_TOKEN,
+    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN, // Changed from GITHUB_TOKEN
   });
 
   try {

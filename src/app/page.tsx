@@ -81,22 +81,24 @@ export default function Home() {
         </div>
       </section>
       
-      {/* Skills Section */}
-      <section className="py-16">
-        <div className="container mx-auto px-4">
+      {/* Skills Section - Simplified */}
+      <section className="py-16 relative overflow-hidden">
+        {/* Subtle background effect */}
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 z-0"></div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
               Skills &amp; Technologies
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               These are some of the technologies I work with regularly.
             </p>
-            
           </motion.div>
           
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
@@ -110,11 +112,11 @@ export default function Home() {
                 key={skill}
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.1 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
                 className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center justify-center
-                           transition-all duration-300 ease-in-out
-                           hover:bg-gray-50 dark:hover:bg-gray-700
-                           hover:shadow-lg hover:translate-y-[-2px]"
+                          border-t-4 border-blue-500 dark:border-blue-400
+                          transition-all duration-300 ease-in-out
+                          hover:shadow-lg hover:-translate-y-1"
               >
                 <span className="text-gray-700 dark:text-gray-200 font-medium">
                   {skill}
@@ -266,8 +268,6 @@ export default function Home() {
                 </svg>
               </motion.div>
             )}
-            
-            {/* Removed the computationally expensive meteor animation */}
           </div>
         </div>
       </section>

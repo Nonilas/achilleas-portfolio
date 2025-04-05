@@ -100,6 +100,9 @@ export default function ProjectsPage() {
           <p className="text-lg text-gray-600 dark:text-gray-300">
             A collection of my work in AI, machine learning, and software development.
           </p>
+          <p className="text-sm text-gray-800 dark:text-gray-400 mt-2">
+            Note: Some projects are private due to company or university restrictions.
+          </p>
         </motion.div>
 
         {/* Filter options */}

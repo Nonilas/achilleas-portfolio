@@ -155,7 +155,7 @@ const HeroVisualization = () => {
     { name: "Full-Stack Dev", icon: <Braces className="h-5 w-5 text-pink-400" /> }
   ];
   
-  // Rotating code snippets
+  // Rotating code snippets - Keep shorter for better mobile display
   const codeSnippets = [
     `# AI model training
 model = Sequential([
@@ -173,9 +173,7 @@ df.groupby('category').mean()`,
     `# Cloud deployment
 terraform {
   required_providers {
-    aws = {
-      source = "aws"
-    }
+    aws = { source = "aws" }
   }
 }`,
     `// React component
@@ -284,7 +282,7 @@ function App() {
           <span>{isClient ? skills[currentSkill].name : skills[0].name}</span>
         </motion.div>
         
-        {/* Terminal with rotating code - responsive sizing */}
+        {/* Terminal with adaptive height and scrolling */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -292,17 +290,18 @@ function App() {
           className="mt-4 md:mt-6 w-11/12 md:w-4/5 max-w-md bg-gray-900 bg-opacity-60 backdrop-blur-md rounded-lg overflow-hidden border border-gray-800"
         >
           {/* Terminal header */}
-          <div className="bg-gray-800 px-2 py-1 md:px-4 md:py-2 flex items-center">
+          <div className="bg-gray-800 px-2 py-1 md:px-4 md:py-2 flex items-center justify-between">
             <div className="flex space-x-1 md:space-x-2">
               <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-red-500"/>
               <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-yellow-500"/>
               <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-500"/>
             </div>
-            <div className="ml-2 text-xs text-gray-400 font-mono">code-editor</div>
+            <div className="ml-2 text-xs text-gray-400 font-mono flex-1">code-editor</div>
+            <div className="text-xs text-gray-500 hidden md:block">{currentSkill === 0 ? 'Python' : currentSkill === 1 ? 'Python' : currentSkill === 2 ? 'Python' : currentSkill === 3 ? 'HCL' : 'JavaScript'}</div>
           </div>
           
-          {/* Terminal body with typing effect */}
-          <div className="px-2 py-2 md:px-4 md:py-3 font-mono text-xs md:text-sm text-green-400 overflow-hidden h-16 md:h-24">
+          {/* Terminal body with adaptive height and scrolling */}
+          <div className="px-2 py-2 md:px-4 md:py-3 font-mono text-xs md:text-sm text-green-400 overflow-y-auto custom-scrollbar" style={{ height: '125px' }}>
             <motion.div
               key={isClient ? currentSkill : 0}
               initial={{ opacity: 0 }}
@@ -312,16 +311,14 @@ function App() {
             >
               {(isClient ? codeSnippets[currentSkill] : codeSnippets[0]).split('\n').map((line, index) => (
                 <div key={index} className="flex">
-                  <span className="text-gray-500 w-4 md:w-6">{index + 1}</span>
-                  <span>{line}</span>
+                  <span className="text-gray-500 w-5 md:w-6 flex-shrink-0 text-right pr-1">{index + 1}</span>
+                  <span className="break-words pl-2">{line}</span>
                 </div>
               ))}
             </motion.div>
           </div>
         </motion.div>
       </div>
-      
-      {/* No random data points to avoid hydration errors */}
     </div>
   );
 };

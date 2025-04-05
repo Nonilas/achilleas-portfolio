@@ -16,25 +16,27 @@ export interface GitHubProject {
 
 // Get featured projects from GitHub
 export async function getFeaturedProjects(username: string): Promise<GitHubProject[]> {
- // console.log('Starting getFeaturedProjects with username:', username);
-  //console.log('GitHub Token exists:', !!process.env.NEXT_PUBLIC_GITHUB_TOKEN);
-
+  // Define repositories to exclude
+  const excludedRepos = ["Nonilas"];
+  
   const octokit = new Octokit({
     auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
   });
 
   try {
-    //console.log('Fetching repositories...');
     const { data: repos } = await octokit.rest.repos.listForUser({
       username,
       sort: 'updated',
       per_page: 100,
     });
     
-    //console.log('Fetched repos count:', repos.length);
-    
     const featuredProjects = repos
-      .filter(repo => !repo.fork || ((repo.topics && repo.topics.length > 0) || repo.description))
+      .filter(repo => 
+        // Exclude specific repositories by name
+        !excludedRepos.includes(repo.name) && 
+        // Original filter logic
+        (!repo.fork || ((repo.topics && repo.topics.length > 0) || repo.description))
+      )
       .map(repo => ({
         id: repo.id,
         name: repo.name,
@@ -48,7 +50,6 @@ export async function getFeaturedProjects(username: string): Promise<GitHubProje
         updated_at: repo.updated_at || '',
       }));
 
-    //console.log('Filtered projects count:', featuredProjects.length);
     return featuredProjects;
   } catch (error) {
     console.error('Detailed error in getFeaturedProjects:', error);
@@ -59,7 +60,7 @@ export async function getFeaturedProjects(username: string): Promise<GitHubProje
 // Get specific project details
 export async function getProjectDetails(username: string, repoName: string): Promise<GitHubProject | null> {
   const octokit = new Octokit({
-    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN, // Changed from GITHUB_TOKEN
+    auth: process.env.NEXT_PUBLIC_GITHUB_TOKEN,
   });
 
   try {

@@ -205,11 +205,11 @@ function App() {
     // Set intervals for animations
     const skillInterval = setInterval(() => {
       setCurrentSkill(prev => (prev + 1) % skills.length);
-    }, 7000);
+    }, 5000);
     
     const titleInterval = setInterval(() => {
       setTitleIndex(prev => (prev + 1) % titles.length);
-    }, 7000);
+    }, 5000);
     
     return () => {
       window.removeEventListener('resize', updateDimensions);

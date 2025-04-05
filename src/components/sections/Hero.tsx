@@ -145,7 +145,7 @@ const HeroVisualization = () => {
   const [currentSkill, setCurrentSkill] = useState(0);
   const [titleIndex, setTitleIndex] = useState(0);
   
-  const titles = ["DataScientist", "MLEngineer", "FullStackDev", "AIResearcher"];
+  const titles = ["MLEngineer", "AIResearcher","DataScientist",  "DevOPS","FullStackDev", ];
   
   const skills: Skill[] = [
     { name: "Machine Learning", icon: <Cpu className="h-5 w-5 text-purple-400" /> },
@@ -205,11 +205,11 @@ function App() {
     // Set intervals for animations
     const skillInterval = setInterval(() => {
       setCurrentSkill(prev => (prev + 1) % skills.length);
-    }, 3000);
+    }, 7000);
     
     const titleInterval = setInterval(() => {
       setTitleIndex(prev => (prev + 1) % titles.length);
-    }, 5000);
+    }, 7000);
     
     return () => {
       window.removeEventListener('resize', updateDimensions);

@@ -1,8 +1,7 @@
-// 1. Update next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
   // Disable trailing slashes in URLs
   trailingSlash: false,
@@ -15,6 +14,8 @@ const nextConfig = {
   experimental: {
     forceSwcTransforms: true,
   },
-}
+  // Enable React strict mode for better development experience
+  reactStrictMode: true,
+};
 
 module.exports = nextConfig

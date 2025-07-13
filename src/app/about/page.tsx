@@ -216,6 +216,15 @@ export default function AboutPage() {
                     I&apos;m a Data Science and Artificial Intelligence student at Maastricht University with a passion for machine learning, computer vision, and full-stack development. My background spans AI research, marketing management, and software development internships.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
+                    <a
+                      href="/about/Achilleas_Leivadiotis_Resume.pdf"
+                      download
+                      className="text-blue-600 dark:text-blue-400 underline"
+                    >
+                      Download my CV (PDF)
+                    </a>
+                  </p>
+                  <p className="text-gray-600 dark:text-gray-300 mb-4">
                     Currently working as an AI & Environmental Analyst Trainee at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">

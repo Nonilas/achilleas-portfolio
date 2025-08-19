@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, Briefcase, GraduationCap, Code, Users, Database, Server, Cpu, Braces, BookOpen, Star } from 'lucide-react';
 import Link from 'next/link';
+import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
 
 export default function AboutPage() {
   // Client-side state for animations
@@ -143,7 +144,7 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto text-center mb-10 md:mb-12"
+          className="max-w-6xl mx-auto text-center mb-10 md:mb-12"
         >
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
             About Me
@@ -154,7 +155,7 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Personal Bio Section with new design */}
-        <div className="max-w-5xl mx-auto mb-12 md:mb-16">
+        <div className="max-w-6xl mx-auto mb-12 md:mb-16">
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-xl overflow-hidden">
             {/* Background gradient bar with animation */}
             <motion.div 
@@ -218,14 +219,16 @@ export default function AboutPage() {
                   <div className="text-gray-600 dark:text-gray-300 mb-4">
                     <a
                       href="/Achilleas_Leivadiotis_Resume.pdf"
-                      download
+                      download="Achilleas_Leivadiotis_Resume.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300 hover:scale-105"
                     >
                       Download my CV (PDF)
                     </a>
                   </div>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Currently working as an AI & Environmental Analyst Trainee at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
+                    Currently working as an AI Research & Development Intern at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">
                     My technical expertise includes Python, TypeScript, SQL, and various AI frameworks (PyTorch, TensorFlow). I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
@@ -241,7 +244,7 @@ export default function AboutPage() {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="max-w-5xl mx-auto mb-16"
+          className="max-w-6xl mx-auto mb-16"
         >
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-6 flex items-center">
             <Code className="h-6 w-6 text-blue-500 dark:text-blue-400 mr-2" />
@@ -285,7 +288,7 @@ export default function AboutPage() {
         </motion.div>
 
         {/* Tabbed Experience/Education Section */}
-        <div className="max-w-5xl mx-auto mb-16">
+        <div className="max-w-6xl mx-auto mb-16">
           <div className="flex justify-center mb-6">
             <div className="inline-flex border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
               <button
@@ -325,13 +328,13 @@ export default function AboutPage() {
               >
                 {/* Connected timeline */}
                 {index < experiences.length - 1 && (
-                  <div className="absolute left-4 top-14 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 z-0"></div>
+                  <div className="absolute left-8 top-14 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-purple-500 z-0"></div>
                 )}
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 ml-8 relative z-10">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 ml-20 relative z-10">
                   {/* Timeline dot */}
                   <div 
-                    className="absolute -left-12 top-6 w-8 h-8 rounded-full flex items-center justify-center"
+                    className="absolute -left-24 top-6 w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: experience.color }}
                   >
                     {experience.icon}
@@ -379,13 +382,13 @@ export default function AboutPage() {
               >
                 {/* Connected timeline */}
                 {index < education.length - 1 && (
-                  <div className="absolute left-4 top-14 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-green-500 z-0"></div>
+                  <div className="absolute left-8 top-14 bottom-0 w-0.5 bg-gradient-to-b from-blue-500 to-green-500 z-0"></div>
                 )}
                 
-                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 ml-8 relative z-10">
+                <div className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 md:p-6 ml-20 relative z-10">
                   {/* Timeline dot */}
                   <div 
-                    className="absolute -left-12 top-6 w-8 h-8 rounded-full flex items-center justify-center"
+                    className="absolute -left-24 top-6 w-8 h-8 rounded-full flex items-center justify-center"
                     style={{ backgroundColor: edu.color }}
                   >
                     {edu.icon}
@@ -421,13 +424,16 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
+
+        {/* Experience Timeline Component */}
+        <ExperienceTimeline />
         
         {/* CTA Section with interactive cards */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-5xl mx-auto mt-16 md:mt-24 text-center"
+          className="max-w-6xl mx-auto mt-16 md:mt-24 text-center"
         >
           <div className="rounded-lg p-8 border overflow-hidden relative">
             {/* Animated gradient background */}

@@ -29,6 +29,18 @@ export default function ProjectsPage() {
   // Add custom projects not in GitHub to showcase your AI projects
   const customProjects: GitHubProject[] = [
     {
+      id: 10000,
+      name: "BuildCraft Construction Company Platform",
+      description: "Full-stack web application for construction company with real estate management, booking system, payment processing (Stripe), admin dashboard, and CMS. Built with Next.js 15, React 19, Prisma, NextAuth.js, and Three.js for 3D visualizations.",
+      html_url: "https://github.com/Nonilas/construction-company",
+      homepage: null,
+      topics: ["nextjs", "react", "typescript", "prisma", "stripe", "full-stack", "real-estate", "booking-system", "cms", "three-js"],
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2025-01-15T00:00:00Z"
+    },
+    {
       id: 10001,
       name: "3D MEP Component Location/Type Predictor",
       description: "AI system that automatically places MEP (Mechanical, Electrical, Plumbing) components in a 3D Revit building model, predicting both (x,y,z) coordinates and type. Built with PyTorch neural networks (MLP & 1D CNN with depthwise/residual blocks).",
@@ -87,12 +99,12 @@ export default function ProjectsPage() {
 
   return (
     <main className="min-h-screen py-20">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="max-w-4xl mx-auto text-center mb-12"
+          className="max-w-6xl mx-auto text-center mb-12"
         >
           <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
             My Projects

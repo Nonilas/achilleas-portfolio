@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
+import GitHubStatsSection from '@/components/sections/GitHubStats';
 import { getFeaturedProjects } from '@/utils/github';
 import ProjectCard from '@/components/ui/ProjectCard';
 import type { GitHubProject } from '@/utils/github';
@@ -36,7 +37,7 @@ export default function Home() {
       
       {/* Featured Projects */}
       <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 max-w-6xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -86,7 +87,7 @@ export default function Home() {
         {/* Subtle background effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 z-0"></div>
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -101,31 +102,148 @@ export default function Home() {
             </p>
           </motion.div>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {[
-              'Python', 'PyTorch', 'TensorFlow', 'scikit-learn',
-              'TypeScript', 'JavaScript', 'React', 'Next.js',
-              'SQL', 'MongoDB', 'Azure', 'Angular',
-              'Git', 'MATLAB', 'HTML/CSS', 'REST APIs'
-            ].map((skill, index) => (
-              <motion.div
-                key={skill}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.3, delay: index * 0.05 }}
-                className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-6 flex items-center justify-center
-                          border-t-4 border-blue-500 dark:border-blue-400
-                          transition-all duration-300 ease-in-out
-                          hover:shadow-lg hover:-translate-y-1"
-              >
-                <span className="text-gray-700 dark:text-gray-200 font-medium">
-                  {skill}
-                </span>
-              </motion.div>
-            ))}
+          {/* Categorized Skills Grid */}
+          <div className="space-y-12">
+            {/* AI/ML Skills */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
+                🤖 AI & Machine Learning
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  { name: 'Python', level: 95 },
+                  { name: 'PyTorch', level: 90 },
+                  { name: 'TensorFlow', level: 85 },
+                  { name: 'scikit-learn', level: 90 },
+                  { name: 'Computer Vision', level: 85 },
+                  { name: 'Deep Learning', level: 88 },
+                  { name: 'MATLAB', level: 80 },
+                  { name: 'NumPy/Pandas', level: 92 }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-purple-500 
+                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  >
+                    <div className="flex flex-col items-center">
+                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
+                        {skill.name}
+                      </span>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
+                        <motion.div
+                          className="bg-purple-500 h-2 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                        {skill.level}%
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Full-Stack Development */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
+                💻 Full-Stack Development
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  { name: 'TypeScript', level: 90 },
+                  { name: 'JavaScript', level: 92 },
+                  { name: 'React', level: 88 },
+                  { name: 'Next.js', level: 85 },
+                  { name: 'Node.js', level: 82 },
+                  { name: 'Prisma', level: 80 },
+                  { name: 'HTML/CSS', level: 90 },
+                  { name: 'Tailwind CSS', level: 85 }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-blue-500 
+                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  >
+                    <div className="flex flex-col items-center">
+                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
+                        {skill.name}
+                      </span>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
+                        <motion.div
+                          className="bg-blue-500 h-2 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                        {skill.level}%
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            {/* Data & Cloud */}
+            <div>
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
+                ☁️ Data & Cloud Technologies
+              </h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {[
+                  { name: 'PostgreSQL', level: 85 },
+                  { name: 'MongoDB', level: 80 },
+                  { name: 'Azure', level: 75 },
+                  { name: 'Docker', level: 70 },
+                  { name: 'Git', level: 90 },
+                  { name: 'REST APIs', level: 88 },
+                  { name: 'GraphQL', level: 70 },
+                  { name: 'Stripe', level: 82 }
+                ].map((skill, index) => (
+                  <motion.div
+                    key={skill.name}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.05 }}
+                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-green-500 
+                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+                  >
+                    <div className="flex flex-col items-center">
+                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
+                        {skill.name}
+                      </span>
+                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
+                        <motion.div
+                          className="bg-green-500 h-2 rounded-full"
+                          initial={{ width: 0 }}
+                          animate={{ width: `${skill.level}%` }}
+                          transition={{ duration: 1, delay: index * 0.1 }}
+                        />
+                      </div>
+                      <span className="text-xs text-gray-500 dark:text-gray-400">
+                        {skill.level}%
+                      </span>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* GitHub Stats Section */}
+      <GitHubStatsSection />
       
       {/* Space-Themed CTA Section */}
       <section className="py-16 md:py-20 relative overflow-hidden">
@@ -185,7 +303,7 @@ export default function Home() {
           transition={{ duration: 12, repeat: Infinity, delay: 2 }}
         />
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 max-w-6xl relative z-10">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
               initial={{ opacity: 0, y: 20 }}

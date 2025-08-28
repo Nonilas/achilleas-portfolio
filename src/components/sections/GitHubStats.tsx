@@ -1,35 +1,56 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Star, GitFork, Calendar, Code, Activity, TrendingUp, Users, Zap } from 'lucide-react';
-
-// Mock enhanced stats based on your actual profile
-const enhancedStats = {
-  totalRepos: 12,
-  totalStars: 8,
-  totalForks: 3,
-  totalCommits: 156,
-  contributionsThisYear: 89,
-  longestStreak: 12,
-  currentStreak: 5,
-  mostUsedLanguages: {
-    'TypeScript': 35,
-    'Python': 25,
-    'JavaScript': 20,
-    'CSS': 12,
-    'HTML': 8
-  },
-  recentActivity: '2025-01-19',
-  topProjects: [
-    { name: 'achilleas-portfolio', stars: 2, language: 'TypeScript' },
-    { name: 'BuildCraft', stars: 3, language: 'Next.js' },
-    { name: 'AI-Image-Detector', stars: 1, language: 'Python' }
-  ]
-};
+import { Github, Star, GitFork, Calendar, Code, Activity, TrendingUp, Users, Zap, Loader2 } from 'lucide-react';
+import { fetchGitHubStats, type GitHubStats } from '@/lib/github';
 
 export default function GitHubStatsSection() {
-  const topLanguages = Object.entries(enhancedStats.mostUsedLanguages)
+  const [stats, setStats] = useState<GitHubStats | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const loadGitHubStats = async () => {
+      try {
+        const data = await fetchGitHubStats();
+        setStats(data);
+      } catch (err) {
+        setError('Failed to load GitHub stats');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    loadGitHubStats();
+  }, []);
+
+  if (loading) {
+    return (
+      <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="flex items-center justify-center min-h-[400px]">
+            <Loader2 className="h-8 w-8 animate-spin text-blue-600 dark:text-blue-400" />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  if (error || !stats) {
+    return (
+      <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
+        <div className="container mx-auto px-4 max-w-7xl">
+          <div className="text-center min-h-[400px] flex items-center justify-center">
+            <p className="text-red-500">{error || 'Unable to load GitHub stats'}</p>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  const topLanguages = Object.entries(stats.mostUsedLanguages)
     .sort(([, a], [, b]) => b - a)
     .slice(0, 5);
 
@@ -48,6 +69,8 @@ export default function GitHubStatsSection() {
       'JavaScript': 'from-yellow-400 to-yellow-500',
       'CSS': 'from-purple-500 to-purple-600',
       'HTML': 'from-orange-500 to-orange-600',
+      'Java': 'from-red-500 to-red-600',
+      'Jupyter Notebook': 'from-orange-400 to-orange-500',
       'Next.js': 'from-black to-gray-700'
     };
     return colors[language] || 'from-gray-500 to-gray-600';
@@ -107,7 +130,7 @@ export default function GitHubStatsSection() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                {enhancedStats.totalRepos}
+                {stats.totalRepos}
               </motion.p>
               <p className="text-xs text-green-600 dark:text-green-400 flex items-center">
                 <TrendingUp className="h-3 w-3 mr-1" /> +2 this month
@@ -147,10 +170,10 @@ export default function GitHubStatsSection() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                {enhancedStats.totalStars}
+                {stats.totalStars}
               </motion.p>
               <p className="text-xs text-blue-600 dark:text-blue-400 flex items-center">
-                <Star className="h-3 w-3 mr-1" /> Across {enhancedStats.totalRepos} projects
+                <Star className="h-3 w-3 mr-1" /> Across {stats.totalRepos} projects
               </p>
             </div>
           </motion.div>
@@ -191,10 +214,10 @@ export default function GitHubStatsSection() {
                 transition={{ duration: 0.5, delay: 0.4 }}
                 viewport={{ once: true }}
               >
-                {enhancedStats.contributionsThisYear}
+                {stats.contributionsThisYear}
               </motion.p>
               <p className="text-xs text-purple-600 dark:text-purple-400 flex items-center">
-                <Users className="h-3 w-3 mr-1" /> Current streak: {enhancedStats.currentStreak} days
+                <Users className="h-3 w-3 mr-1" /> Current streak: {stats.currentStreak} days
               </p>
             </div>
           </motion.div>
@@ -226,10 +249,10 @@ export default function GitHubStatsSection() {
                 transition={{ duration: 0.5, delay: 0.5 }}
                 viewport={{ once: true }}
               >
-                {enhancedStats.totalCommits}
+                {stats.totalCommits}
               </motion.p>
               <p className="text-xs text-gray-500 dark:text-gray-400">
-                Last push: {formatDate(enhancedStats.recentActivity)}
+                Last push: {formatDate(stats.recentActivity)}
               </p>
             </div>
           </motion.div>
@@ -317,30 +340,45 @@ export default function GitHubStatsSection() {
             </div>
 
             <div className="space-y-4">
-              {enhancedStats.topProjects.map((project, index) => (
-                <motion.div
+              {stats.topProjects.map((project, index) => (
+                <motion.a
                   key={project.name}
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: 0.1 * index }}
                   viewport={{ once: true }}
-                  className="p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group cursor-pointer"
+                  className="block p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group cursor-pointer"
                 >
                   <div className="flex items-center justify-between">
-                    <div>
-                      <h4 className="font-medium text-gray-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                        {project.name}
-                      </h4>
+                    <div className="flex-1">
+                      <div className="flex items-center gap-2">
+                        <h4 className="font-medium text-gray-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                          {project.name}
+                        </h4>
+                        {project.description?.includes('Work in Progress') && (
+                          <span className="px-2 py-0.5 text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded-full">
+                            WIP
+                          </span>
+                        )}
+                      </div>
                       <p className="text-xs text-gray-500 dark:text-gray-400">
                         {project.language}
                       </p>
+                      {project.description && (
+                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
+                          {project.description}
+                        </p>
+                      )}
                     </div>
-                    <div className="flex items-center text-yellow-500">
+                    <div className="flex items-center text-yellow-500 ml-3">
                       <Star className="h-3 w-3 mr-1" />
                       <span className="text-sm font-medium">{project.stars}</span>
                     </div>
                   </div>
-                </motion.div>
+                </motion.a>
               ))}
             </div>
           </motion.div>
@@ -380,7 +418,7 @@ export default function GitHubStatsSection() {
             </a>
           </div>
           <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-            Follow my coding journey • {enhancedStats.contributionsThisYear} contributions this year
+            Follow my coding journey • {stats.contributionsThisYear} contributions this year
           </p>
         </motion.div>
       </div>

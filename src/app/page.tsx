@@ -35,49 +35,337 @@ export default function Home() {
       {/* Hero Section */}
       <Hero />
       
-      {/* Featured Projects */}
-      <section className="py-16 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4 max-w-6xl">
+      {/* Portfolio Showcase - Visual Project Display */}
+      <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <div className="container mx-auto px-4 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Featured Projects
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+              My Portfolio
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              Here are some of my recent AI and software development projects.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+              From enterprise platforms to AI systems - explore my diverse project portfolio
             </p>
           </motion.div>
-          
-          {projects.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {projects.map((project, index) => (
-                <ProjectCard key={project.id} project={project} index={index} />
-              ))}
+
+          {/* Main Featured Project - Construction Platform */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-12"
+          >
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden">
+              <div className="grid lg:grid-cols-2 gap-0">
+                {/* Left side - Project Info */}
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <div className="inline-flex items-center gap-2 mb-4">
+                    <span className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-600 dark:text-blue-300 rounded-full text-sm font-semibold">
+                      Full-Stack
+                    </span>
+                    <span className="px-3 py-1 bg-green-100 dark:bg-green-900 text-green-600 dark:text-green-300 rounded-full text-sm font-semibold">
+                      Production Ready
+                    </span>
+                  </div>
+                  <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+                    Kassandra Properties VIP
+                  </h3>
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    Enterprise-grade construction & real estate platform featuring property management, 
+                    Stripe payment processing, 3D property tours, booking system, and full CMS. 
+                    Built with Next.js 15, React 19, Prisma, and Three.js.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {['Next.js', 'TypeScript', 'Stripe', 'Prisma', 'Three.js', 'NextAuth'].map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex gap-4">
+                    <a 
+                      href="https://github.com/Nonilas/construction-company"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-lg hover:opacity-90 transition"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                      View Code
+                    </a>
+                  </div>
+                </div>
+                {/* Right side - Visual Preview */}
+                <div className="relative bg-gradient-to-br from-blue-500 to-purple-600 p-8 lg:p-12 flex items-center justify-center min-h-[400px]">
+                  <div className="absolute inset-0 bg-black opacity-10"></div>
+                  {/* Placeholder for screenshot - you can add your actual screenshot here */}
+                  <div className="relative z-10 text-center">
+                    <div className="bg-white/10 backdrop-blur-md rounded-xl p-8 border border-white/20">
+                      <div className="text-white mb-4">
+                        <svg className="w-16 h-16 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+                        </svg>
+                      </div>
+                      <p className="text-white font-semibold">Real Estate Platform</p>
+                      <p className="text-white/80 text-sm mt-2">FOR_SALE & RENTAL Properties</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          ) : (
-            <div className="text-center py-8 bg-white dark:bg-gray-700 rounded-lg shadow-md">
-              <p className="text-gray-600 dark:text-gray-300">
-                Loading projects or no projects available.
-              </p>
-            </div>
-          )}
-          
+          </motion.div>
+
+          {/* Grid of Other Projects */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {/* .NET MAUI Dental App */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-cyan-500 to-blue-600 p-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="text-white text-center z-10">
+                  <svg className="w-12 h-12 mx-auto mb-2" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                  </svg>
+                  <p className="font-semibold">.NET MAUI</p>
+                  <p className="text-sm opacity-80">Cross-Platform</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  PolichroniadouDental
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  Medical booking system with Clean Architecture, Google Calendar sync, and encryption. Supports iOS, Android, Windows.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded text-xs">
+                    C#
+                  </span>
+                  <span className="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded text-xs">
+                    .NET 9
+                  </span>
+                  <span className="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded text-xs">
+                    SQLite
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* AI MEP Predictor */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 p-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="text-white text-center z-10">
+                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                  </svg>
+                  <p className="font-semibold">AI/ML</p>
+                  <p className="text-sm opacity-80">3D Modeling</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  3D MEP Component Predictor
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  AI system for automatic MEP component placement in Revit models using PyTorch neural networks.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
+                    PyTorch
+                  </span>
+                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
+                    Python
+                  </span>
+                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
+                    Revit API
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* KassandraTech Website */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.3 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-green-500 to-teal-600 p-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="text-white text-center z-10">
+                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/>
+                  </svg>
+                  <p className="font-semibold">Web Dev</p>
+                  <p className="text-sm opacity-80">Modern UI/UX</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  KassandraTech Consultancy
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  Tech consultancy website with smooth animations, lazy loading, and responsive design.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded text-xs">
+                    Next.js
+                  </span>
+                  <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded text-xs">
+                    Framer
+                  </span>
+                  <span className="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-700 dark:text-green-300 rounded text-xs">
+                    TypeScript
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* AI Image Detector */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-orange-500 to-red-600 p-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="text-white text-center z-10">
+                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                  </svg>
+                  <p className="font-semibold">Computer Vision</p>
+                  <p className="text-sm opacity-80">Grade: 9.5/10</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  AI Image Detector
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  CNN-based system to identify AI-generated images with heatmap visualization.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded text-xs">
+                    PyTorch
+                  </span>
+                  <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded text-xs">
+                    CNN
+                  </span>
+                  <span className="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-700 dark:text-orange-300 rounded text-xs">
+                    GradCAM
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* DINOv3 Research */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
+            >
+              <div className="h-48 bg-gradient-to-br from-indigo-500 to-purple-600 p-6 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                <div className="text-white text-center z-10">
+                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+                  </svg>
+                  <p className="font-semibold">Research</p>
+                  <p className="text-sm opacity-80">Vision Transformer</p>
+                </div>
+              </div>
+              <div className="p-6">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
+                  DINOv3 Computer Vision
+                </h4>
+                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
+                  Self-supervised vision transformer research for domain-specific image recognition.
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs">
+                    DINOv3
+                  </span>
+                  <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs">
+                    PyTorch
+                  </span>
+                  <span className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900 text-indigo-700 dark:text-indigo-300 rounded text-xs">
+                    ViT
+                  </span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* View All Projects Card */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+              className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
+            >
+              <a href="/projects" className="p-8 text-center group-hover:scale-105 transition-transform">
+                <svg className="w-12 h-12 mx-auto mb-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+                <p className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">View All Projects</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Explore my complete portfolio</p>
+                <p className="text-sm text-blue-600 dark:text-blue-400 mt-2 group-hover:underline">Including GitHub repos →</p>
+              </a>
+            </motion.div>
+          </div>
+
+          {/* Call to Action */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            className="text-center mt-12"
+            transition={{ duration: 0.5, delay: 0.7 }}
+            className="text-center"
           >
-            <a 
-              href="/projects" 
-              className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-300"
-            >
-              View All Projects
-            </a>
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/20 dark:to-purple-900/20 rounded-xl p-6 max-w-2xl mx-auto">
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
+                🚀 <strong>Interested in working together?</strong>
+              </p>
+              <p className="text-gray-600 dark:text-gray-400 mb-4">
+                I'm always open to discussing new opportunities, collaborations, or interesting projects.
+              </p>
+              <div className="flex flex-wrap justify-center gap-4">
+                <a 
+                  href="/contact" 
+                  className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                  </svg>
+                  Contact Me
+                </a>
+                <a 
+                  href="mailto:achilleasleiv@gmail.com" 
+                  className="inline-flex items-center px-6 py-3 bg-gray-200 dark:bg-gray-700 hover:bg-gray-300 dark:hover:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg transition-colors"
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/>
+                  </svg>
+                  Send Email
+                </a>
+              </div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -163,7 +451,11 @@ export default function Home() {
                   { name: 'Node.js', level: 82 },
                   { name: 'Prisma', level: 80 },
                   { name: 'HTML/CSS', level: 90 },
-                  { name: 'Tailwind CSS', level: 85 }
+                  { name: 'Tailwind CSS', level: 85 },
+                  { name: 'C#', level: 85 },
+                  { name: '.NET/MAUI', level: 82 },
+                  { name: 'ASP.NET Core', level: 78 },
+                  { name: 'Three.js', level: 75 }
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}
@@ -203,12 +495,16 @@ export default function Home() {
                 {[
                   { name: 'PostgreSQL', level: 85 },
                   { name: 'MongoDB', level: 80 },
+                  { name: 'Supabase', level: 83 },
+                  { name: 'SQLite', level: 80 },
                   { name: 'Azure', level: 75 },
                   { name: 'Docker', level: 70 },
                   { name: 'Git', level: 90 },
                   { name: 'REST APIs', level: 88 },
                   { name: 'GraphQL', level: 70 },
-                  { name: 'Stripe', level: 82 }
+                  { name: 'Stripe API', level: 82 },
+                  { name: 'NextAuth.js', level: 85 },
+                  { name: 'Entity Framework', level: 78 }
                 ].map((skill, index) => (
                   <motion.div
                     key={skill.name}

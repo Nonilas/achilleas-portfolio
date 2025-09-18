@@ -91,7 +91,7 @@ export default function AboutPage() {
     {
       title: "Software Development",
       icon: <Code className="h-8 w-8 text-blue-500" />,
-      skills: ["TypeScript", "Python", "React", "Next.js", "RESTful APIs"],
+      skills: ["TypeScript", "Python", "C#", "React", "Next.js", ".NET MAUI", "RESTful APIs"],
       color: "from-blue-400 to-blue-600",
       darkColor: "from-blue-600 to-blue-800",
       textColor: "text-blue-500",
@@ -100,7 +100,7 @@ export default function AboutPage() {
     {
       title: "Data Engineering",
       icon: <Database className="h-8 w-8 text-green-500" />,
-      skills: ["SQL", "MongoDB", "Azure", "Data Pipelines", "ETL"],
+      skills: ["SQL", "MongoDB", "PostgreSQL", "Supabase", "Azure", "Prisma ORM", "Entity Framework"],
       color: "from-green-400 to-green-600",
       darkColor: "from-green-600 to-green-800",
       textColor: "text-green-500",
@@ -214,7 +214,7 @@ export default function AboutPage() {
                     Data Science & AI Student
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    I&apos;m a Data Science and Artificial Intelligence student at Maastricht University with a passion for machine learning, computer vision, and full-stack development. My background spans AI research, marketing management, and software development internships.
+                    I&apos;m a Data Science and Artificial Intelligence student at Maastricht University with a passion for machine learning, computer vision, and full-stack development. My background spans AI research, marketing management, software development internships, and enterprise application development with .NET/C# and TypeScript.
                   </p>
                   <div className="text-gray-600 dark:text-gray-300 mb-4">
                     <a
@@ -231,7 +231,7 @@ export default function AboutPage() {
                     Currently working as an AI Research & Development Intern at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
                   </p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    My technical expertise includes Python, TypeScript, SQL, and various AI frameworks (PyTorch, TensorFlow). I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
+                    My technical expertise includes Python, TypeScript, C#/.NET, SQL, and various AI frameworks (PyTorch, TensorFlow). I&apos;ve built enterprise-grade platforms including a construction company management system with real estate features, healthcare appointment systems with .NET MAUI, and tech consultancy websites. I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
                   </p>
                 </div>
               </div>

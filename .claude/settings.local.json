@@ -3,7 +3,9 @@
     "allow": [
       "Bash(npm run dev:*)",
       "mcp__ide__getDiagnostics",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Read(//c/Users/achil/Downloads/construction-company/**)",
+      "Read(//c/KassandraTech/**)"
     ],
     "deny": [],
     "ask": []

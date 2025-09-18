@@ -30,47 +30,95 @@ export default function ProjectsPage() {
   const customProjects: GitHubProject[] = [
     {
       id: 10000,
-      name: "BuildCraft Construction Company Platform",
-      description: "Full-stack web application for construction company with real estate management, booking system, payment processing (Stripe), admin dashboard, and CMS. Built with Next.js 15, React 19, Prisma, NextAuth.js, and Three.js for 3D visualizations.",
+      name: "Kassandra Properties VIP - Construction & Real Estate Platform",
+      description: "Enterprise-grade platform for construction company featuring property management, booking system with Stripe payments, 3D property tours, admin CMS, role-based access control, and multi-language support. Handles FOR_SALE and RENTAL properties with advanced filtering.",
       html_url: "https://github.com/Nonilas/construction-company",
       homepage: null,
-      topics: ["nextjs", "react", "typescript", "prisma", "stripe", "full-stack", "real-estate", "booking-system", "cms", "three-js"],
+      topics: ["nextjs", "react", "typescript", "prisma", "stripe", "full-stack", "real-estate", "booking-system", "cms", "three-js", "nextauth"],
       language: "TypeScript",
       stargazers_count: 0,
       forks_count: 0,
-      updated_at: "2025-01-15T00:00:00Z"
+      updated_at: "2025-01-18T00:00:00Z"
     },
     {
       id: 10001,
+      name: "KassandraTech - Tech Consulting Website",
+      description: "Modern tech consultancy website with smooth animations, lazy loading, performance optimizations, and responsive design. Features tech stack showcase, portfolio section, testimonials, and interactive service cards with Framer Motion animations.",
+      html_url: "#",
+      homepage: null,
+      topics: ["nextjs", "typescript", "framer-motion", "tailwindcss", "responsive-design", "performance"],
+      language: "TypeScript",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2025-01-10T00:00:00Z"
+    },
+    {
+      id: 10002,
+      name: "PolichroniadouDental - Medical Booking System (.NET MAUI)",
+      description: "Cross-platform dental clinic management system built with .NET 9 MAUI and Clean Architecture. Features appointment scheduling, patient management, Google Calendar sync, push notifications, and secure data encryption. Supports iOS, Android, Windows, and macOS.",
+      html_url: "#",
+      homepage: null,
+      topics: ["dotnet", "maui", "csharp", "clean-architecture", "healthcare", "cross-platform", "sqlite", "google-calendar-api"],
+      language: "C#",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2025-01-17T00:00:00Z"
+    },
+    {
+      id: 10003,
+      name: "DentistBookingApp - Healthcare Appointment System",
+      description: ".NET MAUI application for dental appointment management with domain-driven design, event sourcing patterns, and repository pattern implementation. Includes audit logging, message queuing, and real-time synchronization capabilities.",
+      html_url: "#",
+      homepage: null,
+      topics: ["dotnet", "maui", "csharp", "ddd", "event-sourcing", "repository-pattern"],
+      language: "C#",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2025-01-16T00:00:00Z"
+    },
+    {
+      id: 10004,
       name: "3D MEP Component Location/Type Predictor",
       description: "AI system that automatically places MEP (Mechanical, Electrical, Plumbing) components in a 3D Revit building model, predicting both (x,y,z) coordinates and type. Built with PyTorch neural networks (MLP & 1D CNN with depthwise/residual blocks).",
       html_url: "#",
       homepage: null,
-      topics: ["ai", "machine-learning", "pytorch", "3d-modeling", "mep", "revit"],
+      topics: ["ai", "machine-learning", "pytorch", "3d-modeling", "mep", "revit", "neural-networks"],
       language: "Python",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2025-02-01T00:00:00Z"
     },
     {
-      id: 10002,
+      id: 10005,
+      name: "DINOv3 - Computer Vision Research",
+      description: "Working with Facebook's DINOv3 self-supervised vision transformer for advanced computer vision tasks. Implementing custom fine-tuning for domain-specific image recognition and feature extraction.",
+      html_url: "#",
+      homepage: null,
+      topics: ["computer-vision", "vision-transformer", "self-supervised-learning", "dinov3", "pytorch", "deep-learning"],
+      language: "Python",
+      stargazers_count: 0,
+      forks_count: 0,
+      updated_at: "2025-01-15T00:00:00Z"
+    },
+    {
+      id: 10006,
       name: "AI Image Detector",
       description: "Predictive modeling to identify AI-generated images. Developed Convolutional and residual neural networks with a front-end interface to upload images and view heatmaps of detection results. Grade: 9.5/10",
       html_url: "#",
       homepage: null,
-      topics: ["ai", "computer-vision", "image-detection", "convolutional-neural-networks", "deep-learning"],
+      topics: ["ai", "computer-vision", "image-detection", "cnn", "deep-learning", "gradcam"],
       language: "Python",
       stargazers_count: 0,
       forks_count: 0,
       updated_at: "2024-07-01T00:00:00Z"
     },
     {
-      id: 10003,
+      id: 10007,
       name: "UNO Game with AI Bots",
-      description: "Recreation of the UNO card game with AI-driven bots. Implemented Monte Carlo search algorithms and neural-network-based strategy with a graphical user interface.",
+      description: "Recreation of the UNO card game with AI-driven bots. Implemented Monte Carlo Tree Search algorithms and neural-network-based strategy with a graphical user interface.",
       html_url: "#",
       homepage: null,
-      topics: ["game-ai", "monte-carlo", "neural-networks", "uno", "card-game"],
+      topics: ["game-ai", "monte-carlo", "neural-networks", "uno", "card-game", "pygame"],
       language: "Python",
       stargazers_count: 0,
       forks_count: 0,
@@ -85,13 +133,13 @@ export default function ProjectsPage() {
   const filteredProjects = filter === 'All' 
     ? allProjects 
     : allProjects.filter(project => {
-        if (filter === 'AI/ML' && (project.topics?.includes('ai') || project.topics?.includes('machine-learning'))) {
+        if (filter === 'AI/ML' && (project.topics?.includes('ai') || project.topics?.includes('machine-learning') || project.topics?.includes('computer-vision') || project.topics?.includes('neural-networks'))) {
           return true;
         }
-        if (filter === 'Frontend' && (project.topics?.includes('frontend') || project.language === 'JavaScript' || project.language === 'TypeScript')) {
+        if (filter === 'Web' && (project.topics?.includes('nextjs') || project.topics?.includes('react') || project.topics?.includes('full-stack') || project.language === 'JavaScript' || project.language === 'TypeScript')) {
           return true;
         }
-        if (filter === 'Backend' && (project.topics?.includes('backend') || project.language === 'Python' || project.language === 'Node.js')) {
+        if (filter === '.NET/C#' && (project.topics?.includes('dotnet') || project.topics?.includes('csharp') || project.topics?.includes('maui') || project.language === 'C#')) {
           return true;
         }
         return false;
@@ -141,24 +189,24 @@ export default function ProjectsPage() {
               AI & Machine Learning
             </button>
             <button 
-              onClick={() => setFilter('Frontend')}
+              onClick={() => setFilter('Web')}
               className={`px-4 py-2 rounded-full ${
-                filter === 'Frontend' 
+                filter === 'Web' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200'
               }`}
             >
-              Frontend
+              Web Development
             </button>
             <button 
-              onClick={() => setFilter('Backend')}
+              onClick={() => setFilter('.NET/C#')}
               className={`px-4 py-2 rounded-full ${
-                filter === 'Backend' 
+                filter === '.NET/C#' 
                   ? 'bg-blue-600 text-white' 
                   : 'bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200'
               }`}
             >
-              Backend
+              .NET/C#
             </button>
           </div>
         </div>

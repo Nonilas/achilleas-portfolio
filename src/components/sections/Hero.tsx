@@ -145,14 +145,15 @@ const HeroVisualization = () => {
   const [currentSkill, setCurrentSkill] = useState(0);
   const [titleIndex, setTitleIndex] = useState(0);
   
-  const titles = ["MLEngineer", "AIResearcher","DataScientist",  "DevOPS","FullStackDev", ];
+  const titles = ["MLEngineer", "AIResearcher", "DataScientist", "DevOPS", "FullStackDev", ".NETDeveloper"];
   
   const skills: Skill[] = [
     { name: "Machine Learning", icon: <Cpu className="h-5 w-5 text-purple-400" /> },
     { name: "Computer Vision", icon: <Code className="h-5 w-5 text-yellow-400" /> },
     { name: "Data Science", icon: <Database className="h-5 w-5 text-blue-400" /> },
     { name: "Cloud Computing", icon: <Server className="h-5 w-5 text-green-400" /> },
-    { name: "Full-Stack Dev", icon: <Braces className="h-5 w-5 text-pink-400" /> }
+    { name: "Full-Stack Dev", icon: <Braces className="h-5 w-5 text-pink-400" /> },
+    { name: ".NET/C# Dev", icon: <Code className="h-5 w-5 text-cyan-400" /> }
   ];
   
   // Rotating code snippets - Keep shorter for better mobile display
@@ -182,6 +183,12 @@ function App() {
   useEffect(() => {
     fetchData()
   }, [])
+}`,
+    `// C# .NET MAUI
+public class AppointmentService {
+  private readonly IRepository _repo;
+  public async Task<Booking> 
+    CreateAsync(BookingRequest req)
 }`
   ];
 
@@ -297,7 +304,7 @@ function App() {
               <div className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-green-500"/>
             </div>
             <div className="ml-2 text-xs text-gray-400 font-mono flex-1">code-editor</div>
-            <div className="text-xs text-gray-500 hidden md:block">{currentSkill === 0 ? 'Python' : currentSkill === 1 ? 'Python' : currentSkill === 2 ? 'Python' : currentSkill === 3 ? 'HCL' : 'JavaScript'}</div>
+            <div className="text-xs text-gray-500 hidden md:block">{currentSkill === 0 ? 'Python' : currentSkill === 1 ? 'Python' : currentSkill === 2 ? 'Python' : currentSkill === 3 ? 'HCL' : currentSkill === 4 ? 'JavaScript' : 'C#'}</div>
           </div>
           
           {/* Terminal body with adaptive height and scrolling */}
@@ -346,7 +353,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8"
             >
-              A passionate Data Science & AI student specializing in machine learning, computer vision, and full-stack development.
+              A passionate Data Science & AI student specializing in machine learning, computer vision, full-stack development, and .NET/C# applications.
             </motion.p>
             
             <motion.div 

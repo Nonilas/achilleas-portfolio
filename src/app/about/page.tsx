@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Briefcase, GraduationCap, Code, Users, Database, Server, Cpu, Braces, BookOpen, Star } from 'lucide-react';
+import { ArrowRight, Briefcase, GraduationCap, Code, Users, Database, Server, Cpu, BookOpen, Star } from 'lucide-react';
 import Link from 'next/link';
 import ExperienceTimeline from '@/components/sections/ExperienceTimeline';
 
@@ -15,23 +15,32 @@ export default function AboutPage() {
     setIsClient(true);
   }, []);
 
-  // Array of experiences (updated with real experience)
+  // Array of experiences (updated with real experience from CV)
   const experiences = [
     {
-      title: 'AI & Environmental Analyst Trainee',
+      title: 'Software Developer - Freelance',
+      company: 'Commercial Construction Website',
+      period: 'July 2025 - Sep 2025',
+      description: 'Built enterprise-grade construction company platform from scratch (80-90% complete). Implemented real-time booking system with Stripe payments, auth, admin dashboard, property listings, CMS, image optimization, and SEO. Full-stack development with modern tech stack.',
+      skills: ['Next.js', 'TypeScript', 'Prisma', 'PostgreSQL', 'Stripe', 'Supabase', 'Vercel'],
+      color: '#10b981',
+      icon: <Code className="h-6 w-6" />
+    },
+    {
+      title: 'AI Research & Development',
       company: 'EUROCONTROL MUAC',
-      period: 'Feb 2025 - Present',
-      description: 'Developing and refining machine learning models for contrail detection and tracking. Utilizing Azure Databricks, Apache Spark, Detectron2, and deepSORT within Microsoft\'s Azure ecosystem. Enhancing instance segmentation accuracy to increase mean Average Precision (mAP).',
-      skills: ['Python', 'PyTorch', 'Azure', 'Computer Vision'],
+      period: 'Feb 2025 - July 2025',
+      description: 'Thesis Grade: 9/10. Enhanced aviation environmental efficiency by developing ML models for contrail detection and real-time tracking. Utilized Azure Databricks, Apache Spark, Detectron2, and deepSORT. Implemented precise flight-attribution algorithms linking detected contrails to specific flights.',
+      skills: ['Python', 'Detectron2', 'deepSORT', 'Azure Databricks', 'Apache Spark', 'Computer Vision'],
       color: '#60a5fa',
       icon: <Cpu className="h-6 w-6" />
     },
     {
       title: 'Marketing Manager',
-      company: 'SCOPE',
-      period: 'Sep 2024 - Present',
-      description: 'Leading promotion and organization of international tech and sales events. Collaborating with cross-functional teams to boost attendance and secure partnerships. Developing marketing strategies to increase event visibility and sponsorship.',
-      skills: ['Event Management', 'Marketing', 'Team Leadership', 'Strategy'],
+      company: 'SCOPE Maastricht',
+      period: 'Sep 2024 - March 2025',
+      description: 'Led marketing for an international Dublin tech & sales trip. Cross-team coordination, boosted attendance & secured sponsorships. Developed marketing strategies to increase event visibility.',
+      skills: ['Event Management', 'Marketing', 'Team Leadership', 'Sponsorship'],
       color: '#8b5cf6',
       icon: <Users className="h-6 w-6" />
     },
@@ -39,50 +48,50 @@ export default function AboutPage() {
       title: 'Software Developer Intern',
       company: 'Next Generation Sensors B.V.',
       period: 'June 2024 - August 2024',
-      description: 'Built a new website including support pages, authentication systems, admin dashboards, and client messaging tools. Implemented secure RESTful APIs and database schemas using TypeScript, Angular, and MongoDB.',
+      description: 'Built a new website including support pages, authentication systems, admin dashboards, and client messaging tools. Implemented secure RESTful APIs and database schemas to handle user data efficiently.',
       skills: ['TypeScript', 'Angular', 'MongoDB', 'REST APIs'],
       color: '#ec4899',
       icon: <Code className="h-6 w-6" />
     },
   ];
 
-  // Array of education (updated with real education)
+  // Array of education (updated with real education from CV)
   const education = [
     {
       degree: 'Data Science & Artificial Intelligence Bachelor',
       institution: 'Maastricht University',
-      year: 'Sep 2022 - present',
-      details: 'Current Modules: Data Analysis, Intelligent Systems. Completed Modules: Calculus (9), Computer Security (9), Data Structures and Algorithms (9), Databases (7), Human Computer Interaction & Affective Computing (10), and more.',
-      highlights: ['Advanced Mathematics', 'Machine Learning', 'Data Structures & Algorithms'],
+      year: 'Graduated - June 2025',
+      details: 'Grade: 7.16/10. Completed Modules: Calculus (9), Computer Security (9), Data Structures and Algorithms (9), Databases (7), Human Computer Interaction & Affective Computing (10), Introduction to Bio-Informatics (8), Large Scale IT and Cloud Computing (8), Machine Learning (6), Probability and Statistics (7), Simulation and Statistical Analysis (7), Software Engineering (7) & More.',
+      highlights: ['GPA: 7.16/10', 'Computer Security (9)', 'DSA (9)', 'HCI (10)'],
       color: '#3b82f6',
       icon: <Database className="h-6 w-6" />
     },
     {
-      degree: 'Project SMART Biotechnology',
+      degree: 'Project SMART - Biotechnology',
       institution: 'University of New Hampshire',
       year: 'July 2020',
-      details: 'Online summer program focused on biotechnology and molecular biology research. Explored cutting-edge research topics in biotechnology and environmental applications.',
-      highlights: ['Biotechnology Research', 'Molecular Biology'],
+      details: 'Online summer program focused on hands-on lab techniques, genetics, and molecular biology.',
+      highlights: ['Biotechnology', 'Genetics', 'Molecular Biology'],
       color: '#10b981',
       icon: <BookOpen className="h-6 w-6" />
     },
     {
       degree: 'IB Diploma Program',
       institution: 'Anatolia College High School',
-      year: 'Sep 2017 - July 2020',
-      details: 'Recognized for Academic Excellence by the Greek Ministry of Education (National Merit Program).',
-      highlights: ['Academic Excellence', 'National Merit Program'],
+      year: 'Sep 2019 - July 2022',
+      details: 'IB Diploma Program (2020-2022) and Lyceum/MYP Program prior.',
+      highlights: ['IB Diploma', 'International Education'],
       color: '#f59e0b',
       icon: <Star className="h-6 w-6" />
     },
   ];
 
-  // Key strengths/skills categories with visual improvements
+  // Key strengths/skills categories with visual improvements (from CV)
   const skillCategories = [
     {
       title: "AI & Machine Learning",
       icon: <Cpu className="h-8 w-8 text-purple-500" />,
-      skills: ["PyTorch", "TensorFlow", "Computer Vision", "NLP", "Deep Learning"],
+      skills: ["PyTorch", "TensorFlow", "scikit-learn", "OpenCV", "Detectron2", "deepSORT", "Computer Vision"],
       color: "from-purple-400 to-purple-600",
       darkColor: "from-purple-600 to-purple-800",
       textColor: "text-purple-500",
@@ -91,29 +100,29 @@ export default function AboutPage() {
     {
       title: "Software Development",
       icon: <Code className="h-8 w-8 text-blue-500" />,
-      skills: ["TypeScript", "Python", "C#", "React", "Next.js", ".NET MAUI", "RESTful APIs"],
+      skills: ["TypeScript", "Python", "C#", "Java", "React", "Next.js", "Angular", ".NET MAUI", "Node.js"],
       color: "from-blue-400 to-blue-600",
       darkColor: "from-blue-600 to-blue-800",
       textColor: "text-blue-500",
       darkTextColor: "dark:text-blue-400"
     },
     {
-      title: "Data Engineering",
+      title: "Data & Cloud Technologies",
       icon: <Database className="h-8 w-8 text-green-500" />,
-      skills: ["SQL", "MongoDB", "PostgreSQL", "Supabase", "Azure", "Prisma ORM", "Entity Framework"],
+      skills: ["SQL (Expert)", "MongoDB", "PostgreSQL", "Supabase", "Azure", "Prisma", "REST APIs", "WebSockets"],
       color: "from-green-400 to-green-600",
       darkColor: "from-green-600 to-green-800",
       textColor: "text-green-500",
       darkTextColor: "dark:text-green-400" 
     },
     {
-      title: "Soft Skills",
-      icon: <Users className="h-8 w-8 text-pink-500" />,
-      skills: ["Cross-functional Collaboration", "Problem Solving", "Critical Thinking", "Communication"],
-      color: "from-pink-400 to-pink-600",
-      darkColor: "from-pink-600 to-pink-800",
-      textColor: "text-pink-500",
-      darkTextColor: "dark:text-pink-400"
+      title: "Tools & Libraries",
+      icon: <Server className="h-8 w-8 text-orange-500" />,
+      skills: ["MATLAB (Expert)", "Pandas", "NumPy", "Git/GitHub", "Docker", "Vercel", "Stripe API", "LLM Tools"],
+      color: "from-orange-400 to-orange-600",
+      darkColor: "from-orange-600 to-orange-800",
+      textColor: "text-orange-500",
+      darkTextColor: "dark:text-orange-400"
     }
   ];
 
@@ -214,7 +223,7 @@ export default function AboutPage() {
                     Data Science & AI Student
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    I&apos;m a Data Science and Artificial Intelligence student at Maastricht University with a passion for machine learning, computer vision, and full-stack development. My background spans AI research, marketing management, software development internships, and enterprise application development with .NET/C# and TypeScript.
+                    I am a Data Science and Artificial Intelligence graduate with a passion for building full-stack applications, machine learning, and computer vision. My background spans freelance projects, AI-driven research projects, and software development internships. I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
                   </p>
                   <div className="text-gray-600 dark:text-gray-300 mb-4">
                     <a
@@ -227,11 +236,8 @@ export default function AboutPage() {
                       Download my CV (PDF)
                     </a>
                   </div>
-                  <p className="text-gray-600 dark:text-gray-300 mb-4">
-                    Currently working as an AI Research & Development Intern at EUROCONTROL MUAC, I&apos;m developing machine learning models for contrail detection and tracking to enhance aviation environmental efficiency.
-                  </p>
                   <p className="text-gray-600 dark:text-gray-300">
-                    My technical expertise includes Python, TypeScript, C#/.NET, SQL, and various AI frameworks (PyTorch, TensorFlow). I&apos;ve built enterprise-grade platforms including a construction company management system with real estate features, healthcare appointment systems with .NET MAUI, and tech consultancy websites. I thrive on cross-functional collaboration, love tackling complex analytical challenges, and aspire to create impactful tech solutions.
+                    My technical expertise includes Python, TypeScript, SQL (expert level), MATLAB (expert level), and various AI frameworks (PyTorch, TensorFlow, OpenCV). I&apos;ve worked on diverse projects from 3D MEP Component predictors and AI image detectors to multiplayer games and enterprise-grade commercial websites. Fluent in Greek (native) and English, with strong interests in chess, music, and outdoor activities.
                   </p>
                 </div>
               </div>
@@ -425,8 +431,7 @@ export default function AboutPage() {
           </div>
         </div>
 
-        {/* Experience Timeline Component */}
-        <ExperienceTimeline />
+        
         
         {/* CTA Section with interactive cards */}
         <motion.div

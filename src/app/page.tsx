@@ -6,6 +6,7 @@ import Hero from '@/components/sections/Hero';
 import GitHubStatsSection from '@/components/sections/GitHubStats';
 import { getFeaturedProjects } from '@/utils/github';
 import ProjectCard from '@/components/ui/ProjectCard';
+import FadeInSection from '@/components/ui/FadeInSection';
 import type { GitHubProject } from '@/utils/github';
 
 export default function Home() {
@@ -36,6 +37,7 @@ export default function Home() {
       <Hero />
       
       {/* Portfolio Showcase - Visual Project Display */}
+      <FadeInSection>
       <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-7xl">
           <motion.div
@@ -369,8 +371,10 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
+      </FadeInSection>
       
       {/* Skills Section - Simplified */}
+      <FadeInSection>
       <section className="py-16 relative overflow-hidden">
         {/* Subtle background effect */}
         <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 z-0"></div>
@@ -537,11 +541,15 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeInSection>
 
       {/* GitHub Stats Section */}
+      <FadeInSection>
       <GitHubStatsSection />
+      </FadeInSection>
       
       {/* Space-Themed CTA Section */}
+      <FadeInSection delay={0.2}>
       <section className="py-16 md:py-20 relative overflow-hidden">
         {/* Starry space background */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900 via-indigo-900 to-purple-900 z-0"></div>
@@ -685,6 +693,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      </FadeInSection>
     </main>
   );
 }

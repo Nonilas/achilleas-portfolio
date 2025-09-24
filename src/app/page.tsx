@@ -105,7 +105,7 @@ export default function Home() {
       
       {/* Portfolio Showcase - Visual Project Display */}
       <FadeInSection>
-      <section className="py-16 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -1075,7 +1075,7 @@ export default function Home() {
 
       {/* Space-Themed CTA Section */}
       <FadeInSection delay={0.2}>
-      <section className="py-16 md:py-20 relative overflow-hidden">
+      <section className="py-8 md:py-12 relative overflow-hidden">
         {/* Starry space background */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900 via-indigo-900 to-purple-900 z-0"></div>
         

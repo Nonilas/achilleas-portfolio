@@ -46,6 +46,26 @@
   background: rgba(90, 120, 200, 0.7);
 }
 
+/* LinkedIn iOS Browser Fixes */
+@supports (-webkit-overflow-scrolling: touch) {
+  /* Fix for iOS Safari and LinkedIn in-app browser */
+  main, section {
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  /* Ensure sections are visible */
+  section {
+    position: relative;
+    z-index: 1;
+  }
+  
+  /* Fix viewport issues */
+  .min-h-screen {
+    min-height: 100vh;
+    min-height: -webkit-fill-available;
+  }
+}
+
 /* Firefox scrollbar */
 .custom-scrollbar {
   scrollbar-width: thin;

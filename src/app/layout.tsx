@@ -22,6 +22,12 @@ export const metadata: Metadata = {
   keywords: ["AI Engineer", "Machine Learning", "Full-Stack Developer", "Data Science", "Computer Vision", "Python", "TypeScript", "C#", ".NET", "React", "Next.js"],
   authors: [{ name: "Achilleas Leivadiotis" }],
   creator: "Achilleas Leivadiotis",
+  viewport: {
+    width: 'device-width',
+    initialScale: 1,
+    maximumScale: 1,
+    userScalable: false,
+  },
   openGraph: {
     title: "Achilleas Leivadiotis - AI/ML Engineer & Full-Stack Developer",
     description: "Explore my portfolio featuring AI/ML projects, full-stack applications, and enterprise solutions.",

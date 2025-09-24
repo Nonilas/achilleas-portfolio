@@ -332,7 +332,7 @@ public class AppointmentService {
 
 export default function Hero() {
   return (
-    <section className="py-12 md:py-20 lg:py-32 overflow-hidden">
+    <section className="py-8 md:py-12 lg:py-20 overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Left side: Text content */}

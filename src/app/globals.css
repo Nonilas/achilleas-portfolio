@@ -111,20 +111,20 @@
     height: auto !important;
     display: block !important;
     background-color: #000;
+    -webkit-video-playable-inline: true;
+    -webkit-playsinline: true;
   }
   
   /* Ensure images load in LinkedIn browser */
-  img, picture {
+  img {
     display: block !important;
-    width: 100% !important;
-    height: auto !important;
-  }
-  
-  /* Next.js Image fix for LinkedIn */
-  img[loading="lazy"], 
-  img[loading="eager"] {
     opacity: 1 !important;
     visibility: visible !important;
+  }
+  
+  /* Override object-cover for compatibility */
+  .object-cover {
+    object-fit: contain !important;
   }
 }
 

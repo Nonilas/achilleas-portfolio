@@ -2,7 +2,6 @@
 
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 import Hero from '@/components/sections/Hero';
 import { getFeaturedProjects } from '@/utils/github';
 import ProjectCard from '@/components/ui/ProjectCard';
@@ -140,7 +139,7 @@ export default function Home() {
                     </span>
                   </div>
                   <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-                    Kassandra Properties VIP
+                    Kassandra Properties VIP - Web App
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
                     Enterprise-grade construction & real estate platform featuring property listings, 
@@ -279,24 +278,14 @@ export default function Home() {
                   </h4>
                   <div className="rounded-xl overflow-hidden shadow-2xl bg-gray-900">
                     <video 
+                      src="/media1.mp4"
                       className="w-full"
                       controls
                       muted
                       playsInline
-                      preload="metadata"
-                      webkit-playsinline="true"
                       autoPlay={false}
-                      poster="/detection.png"
                       style={{ maxHeight: '500px', objectFit: 'contain' }}
-                    >
-                      <source src="/media1.mp4" type="video/mp4" />
-                      <img src="/detection.png" alt="Video preview" className="w-full" />
-                    </video>
-                  </div>
-                  <div className="mt-2 text-center">
-                    <a href="/media1.mp4" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 dark:text-blue-400 hover:underline">
-                      ▶ Open video in new tab
-                    </a>
+                    />
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-3">
                     Norfair tracking algorithm demonstrating superior performance with MOTA: 43.3% and IDF1: 67.9%
@@ -340,14 +329,11 @@ export default function Home() {
                       </div>
                     </div>
                     {/* Detection Image */}
-                    <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800 relative h-40">
-                      <Image 
+                    <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800">
+                      <img 
                         src="/detection.png" 
                         alt="Contrail Detection Visualization"
-                        fill
-                        className="object-cover"
-                        sizes="(max-width: 768px) 100vw, 50vw"
-                        priority
+                        className="w-full h-40 object-cover"
                       />
                     </div>
                   </div>

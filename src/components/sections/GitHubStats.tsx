@@ -1,425 +1,252 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Star, GitFork, Calendar, Code, Activity, TrendingUp, Users, Zap, Loader2 } from 'lucide-react';
-import { fetchGitHubStats, type GitHubStats } from '@/lib/github';
+import Image from 'next/image';
+import { 
+  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, SiVuedotjs, SiAngular,
+  SiNodedotjs, SiPython, SiJupyter, SiExpress, SiFastapi, SiPostgresql,
+  SiTensorflow, SiPytorch, SiOpenaigym, SiScikitlearn,
+  SiAmazon, SiGooglecloud, SiDocker, SiKubernetes, SiMongodb, SiVercel,
+  SiJavascript, SiHtml5, SiCss3, SiFirebase, SiSupabase, SiPrisma
+} from 'react-icons/si';
+import { FaDatabase } from 'react-icons/fa';
+import { BiLogoFlutter } from 'react-icons/bi';
 
-export default function GitHubStatsSection() {
-  const [stats, setStats] = useState<GitHubStats | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const loadGitHubStats = async () => {
-      try {
-        const data = await fetchGitHubStats();
-        setStats(data);
-      } catch (err) {
-        setError('Failed to load GitHub stats');
-        console.error(err);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    loadGitHubStats();
-  }, []);
-
-  if (loading) {
-    return (
-      <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="flex items-center justify-center min-h-[400px]">
-            <Loader2 className="h-8 w-8 animate-spin text-blue-600 dark:text-blue-400" />
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  if (error || !stats) {
-    return (
-      <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-        <div className="container mx-auto px-4 max-w-7xl">
-          <div className="text-center min-h-[400px] flex items-center justify-center">
-            <p className="text-red-500">{error || 'Unable to load GitHub stats'}</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
-  const topLanguages = Object.entries(stats.mostUsedLanguages)
-    .sort(([, a], [, b]) => b - a)
-    .slice(0, 5);
-
-  const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric'
-    });
-  };
-
-  const getLanguageColor = (language: string) => {
-    const colors: { [key: string]: string } = {
-      'TypeScript': 'from-blue-500 to-blue-600',
-      'Python': 'from-yellow-500 to-yellow-600', 
-      'JavaScript': 'from-yellow-400 to-yellow-500',
-      'CSS': 'from-purple-500 to-purple-600',
-      'HTML': 'from-orange-500 to-orange-600',
-      'Java': 'from-red-500 to-red-600',
-      'Jupyter Notebook': 'from-orange-400 to-orange-500',
-      'Next.js': 'from-black to-gray-700'
-    };
-    return colors[language] || 'from-gray-500 to-gray-600';
-  };
-
+export default function GitHubStats() {
   return (
-    <section className="py-16 bg-gradient-to-br from-gray-50 via-blue-50/30 to-purple-50/30 dark:from-gray-900 dark:via-blue-900/20 dark:to-purple-900/20">
-      <div className="container mx-auto px-4 max-w-7xl">
+    <section id="technologies" className="py-20 bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-black">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-8 md:p-12 border border-gray-200 dark:border-gray-700"
         >
-          <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full mb-4">
-            <Github className="h-8 w-8 text-white" />
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-2">
+              Technology <span className="text-orange-500">Stack</span>
+            </h3>
+            <p className="text-gray-600 dark:text-gray-400">
+              Leveraging cutting-edge technologies to deliver exceptional solutions
+            </p>
           </div>
-          <h2 className="text-4xl font-bold bg-gradient-to-r from-gray-900 via-blue-800 to-purple-800 dark:from-white dark:via-blue-200 dark:to-purple-200 bg-clip-text text-transparent mb-4">
-            GitHub Developer Profile
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            A comprehensive overview of my coding journey, contributions, and technical expertise across various projects.
-          </p>
-        </motion.div>
 
-        {/* Enhanced Stats Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-          {/* Public Repositories */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 to-purple-500/5 dark:from-blue-400/10 dark:to-purple-400/10" />
-            <div className="relative">
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-lg">
-                  <Github className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+          {/* Technology Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+            {/* Frontend */}
+            <div className="bg-gray-50 dark:bg-gray-700/30 rounded-xl p-6">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                Frontend
+              </h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <SiReact className="text-2xl text-[#61DAFB]" />
+                  <span className="text-gray-700 dark:text-gray-300">React</span>
                 </div>
-                <motion.div 
-                  className="w-2 h-2 bg-green-400 rounded-full"
-                  animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                />
-              </div>
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                Public Repositories
-              </p>
-              <motion.p
-                className="text-3xl font-bold text-gray-900 dark:text-white mb-1"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                viewport={{ once: true }}
-              >
-                {stats.totalRepos}
-              </motion.p>
-              <p className="text-xs text-green-600 dark:text-green-400 flex items-center">
-                <TrendingUp className="h-3 w-3 mr-1" /> +2 this month
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Total Stars */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-yellow-500/5 to-orange-500/5 dark:from-yellow-400/10 dark:to-orange-400/10" />
-            <div className="relative">
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-2 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg">
-                  <Star className="h-6 w-6 text-yellow-600 dark:text-yellow-400" />
+                <div className="flex items-center gap-3">
+                  <SiNextdotjs className="text-2xl text-black dark:text-white" />
+                  <span className="text-gray-700 dark:text-gray-300">Next.js</span>
                 </div>
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 2, repeat: Infinity }}
-                >
-                  <Zap className="h-4 w-4 text-yellow-500" />
-                </motion.div>
-              </div>
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                Total Stars Earned
-              </p>
-              <motion.p
-                className="text-3xl font-bold text-gray-900 dark:text-white mb-1"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                viewport={{ once: true }}
-              >
-                {stats.totalStars}
-              </motion.p>
-              <p className="text-xs text-blue-600 dark:text-blue-400 flex items-center">
-                <Star className="h-3 w-3 mr-1" /> Across {stats.totalRepos} projects
-              </p>
-            </div>
-          </motion.div>
-
-          {/* Contributions */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-green-500/5 to-emerald-500/5 dark:from-green-400/10 dark:to-emerald-400/10" />
-            <div className="relative">
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-2 bg-green-100 dark:bg-green-900/30 rounded-lg">
-                  <Activity className="h-6 w-6 text-green-600 dark:text-green-400" />
+                <div className="flex items-center gap-3">
+                  <SiTypescript className="text-2xl text-[#3178C6]" />
+                  <span className="text-gray-700 dark:text-gray-300">TypeScript</span>
                 </div>
-                <div className="flex space-x-1">
-                  {[...Array(4)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="w-1 h-6 bg-green-400 rounded-full"
-                      animate={{ height: [6, Math.random() * 20 + 6, 6] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: i * 0.2 }}
-                    />
-                  ))}
+                <div className="flex items-center gap-3">
+                  <SiTailwindcss className="text-2xl text-[#06B6D4]" />
+                  <span className="text-gray-700 dark:text-gray-300">Tailwind CSS</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiVuedotjs className="text-2xl text-[#4FC08D]" />
+                  <span className="text-gray-700 dark:text-gray-300">Vue.js</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiAngular className="text-2xl text-[#DD0031]" />
+                  <span className="text-gray-700 dark:text-gray-300">Angular</span>
                 </div>
               </div>
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                Contributions (2025)
-              </p>
-              <motion.p
-                className="text-3xl font-bold text-gray-900 dark:text-white mb-1"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.4 }}
-                viewport={{ once: true }}
-              >
-                {stats.contributionsThisYear}
-              </motion.p>
-              <p className="text-xs text-purple-600 dark:text-purple-400 flex items-center">
-                <Users className="h-3 w-3 mr-1" /> Current streak: {stats.currentStreak} days
-              </p>
             </div>
-          </motion.div>
 
-          {/* Commits */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -5, transition: { duration: 0.2 } }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700 relative overflow-hidden group"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/5 to-pink-500/5 dark:from-purple-400/10 dark:to-pink-400/10" />
-            <div className="relative">
-              <div className="flex items-center justify-between mb-2">
-                <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                  <GitFork className="h-6 w-6 text-purple-600 dark:text-purple-400" />
+            {/* Backend */}
+            <div className="bg-gray-50 dark:bg-gray-700/30 rounded-xl p-6">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                Backend
+              </h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <SiNodedotjs className="text-2xl text-[#339933]" />
+                  <span className="text-gray-700 dark:text-gray-300">Node.js</span>
                 </div>
-                <Calendar className="h-4 w-4 text-purple-500" />
+                <div className="flex items-center gap-3">
+                  <SiPython className="text-2xl text-[#3776AB]" />
+                  <span className="text-gray-700 dark:text-gray-300">Python</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiJupyter className="text-2xl text-[#F37626]" />
+                  <span className="text-gray-700 dark:text-gray-300">Jupyter</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiExpress className="text-2xl text-gray-700 dark:text-gray-400" />
+                  <span className="text-gray-700 dark:text-gray-300">Express.js</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiFastapi className="text-2xl text-[#009688]" />
+                  <span className="text-gray-700 dark:text-gray-300">FastAPI</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiPostgresql className="text-2xl text-[#4169E1]" />
+                  <span className="text-gray-700 dark:text-gray-300">PostgreSQL</span>
+                </div>
               </div>
-              <p className="text-sm font-medium text-gray-600 dark:text-gray-400 mb-1">
-                Total Commits
-              </p>
-              <motion.p
-                className="text-3xl font-bold text-gray-900 dark:text-white mb-1"
-                initial={{ scale: 0 }}
-                whileInView={{ scale: 1 }}
-                transition={{ duration: 0.5, delay: 0.5 }}
-                viewport={{ once: true }}
-              >
-                {stats.totalCommits}
-              </motion.p>
-              <p className="text-xs text-gray-500 dark:text-gray-400">
-                Last push: {formatDate(stats.recentActivity)}
-              </p>
             </div>
-          </motion.div>
-        </div>
 
-        {/* Enhanced Languages & Projects Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
-          {/* Languages Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.5 }}
-            viewport={{ once: true }}
-            className="lg:col-span-2 bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 md:p-8 border border-gray-200 dark:border-gray-700"
-          >
-            <div className="flex items-center mb-6">
-              <div className="p-2 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg mr-3">
-                <Code className="h-6 w-6 text-white" />
+            {/* AI & Machine Learning */}
+            <div className="bg-gray-50 dark:bg-gray-700/30 rounded-xl p-6">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                AI & Machine Learning
+              </h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <SiTensorflow className="text-2xl text-[#FF6F00]" />
+                  <span className="text-gray-700 dark:text-gray-300">TensorFlow</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiPytorch className="text-2xl text-[#EE4C2C]" />
+                  <span className="text-gray-700 dark:text-gray-300">PyTorch</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiOpenaigym className="text-2xl text-gray-700 dark:text-gray-400" />
+                  <span className="text-gray-700 dark:text-gray-300">OpenAI API</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiScikitlearn className="text-2xl text-[#F7931E]" />
+                  <span className="text-gray-700 dark:text-gray-300">Scikit-learn</span>
+                </div>
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Technology Stack
-              </h3>
             </div>
 
-            <div className="space-y-4">
-              {topLanguages.map(([language, percentage], index) => {
-                const colors = [
-                  'from-blue-500 to-blue-600',
-                  'from-yellow-500 to-orange-500',
-                  'from-green-500 to-emerald-500',
-                  'from-purple-500 to-pink-500',
-                  'from-red-500 to-rose-500'
-                ];
-                
-                return (
-                  <motion.div
-                    key={language}
-                    initial={{ opacity: 0, x: -20 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.1 * index }}
-                    viewport={{ once: true }}
-                    className="group"
-                  >
-                    <div className="flex items-center justify-between mb-2">
-                      <div className="flex items-center space-x-3">
-                        <div className={`w-4 h-4 rounded-full bg-gradient-to-r ${getLanguageColor(language)}`} />
-                        <span className="font-medium text-gray-900 dark:text-white">
-                          {language}
-                        </span>
-                      </div>
-                      <span className="text-sm text-gray-500 dark:text-gray-400">
-                        {percentage}%
-                      </span>
-                    </div>
-                    <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2">
-                      <motion.div
-                        className={`h-2 rounded-full bg-gradient-to-r ${getLanguageColor(language)}`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${percentage}%` }}
-                        transition={{ duration: 1, delay: 0.2 * index }}
-                        viewport={{ once: true }}
-                      />
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </div>
-          </motion.div>
-
-          {/* Top Projects */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            viewport={{ once: true }}
-            className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-6 border border-gray-200 dark:border-gray-700"
-          >
-            <div className="flex items-center mb-6">
-              <div className="p-2 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg mr-3">
-                <Star className="h-5 w-5 text-white" />
+            {/* Cloud & DevOps */}
+            <div className="bg-gray-50 dark:bg-gray-700/30 rounded-xl p-6">
+              <h4 className="font-semibold text-gray-900 dark:text-white mb-4 pb-2 border-b border-gray-200 dark:border-gray-600">
+                Cloud & DevOps
+              </h4>
+              <div className="space-y-3">
+                <div className="flex items-center gap-3">
+                  <SiAmazon className="text-2xl text-[#FF9900]" />
+                  <span className="text-gray-700 dark:text-gray-300">AWS</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiGooglecloud className="text-2xl text-[#4285F4]" />
+                  <span className="text-gray-700 dark:text-gray-300">Google Cloud</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiDocker className="text-2xl text-[#2496ED]" />
+                  <span className="text-gray-700 dark:text-gray-300">Docker</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiKubernetes className="text-2xl text-[#326CE5]" />
+                  <span className="text-gray-700 dark:text-gray-300">Kubernetes</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiMongodb className="text-2xl text-[#47A248]" />
+                  <span className="text-gray-700 dark:text-gray-300">MongoDB</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <SiVercel className="text-2xl text-black dark:text-white" />
+                  <span className="text-gray-700 dark:text-gray-300">Vercel</span>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">
-                Featured Projects
-              </h3>
             </div>
-
-            <div className="space-y-4">
-              {stats.topProjects.map((project, index) => (
-                <motion.a
-                  key={project.name}
-                  href={project.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  initial={{ opacity: 0, y: 10 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: 0.1 * index }}
-                  viewport={{ once: true }}
-                  className="block p-3 bg-gray-50 dark:bg-gray-700/50 rounded-xl hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors group cursor-pointer"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-2">
-                        <h4 className="font-medium text-gray-900 dark:text-white text-sm group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
-                          {project.name}
-                        </h4>
-                        {project.description?.includes('Work in Progress') && (
-                          <span className="px-2 py-0.5 text-xs bg-yellow-100 dark:bg-yellow-900/30 text-yellow-700 dark:text-yellow-400 rounded-full">
-                            WIP
-                          </span>
-                        )}
-                      </div>
-                      <p className="text-xs text-gray-500 dark:text-gray-400">
-                        {project.language}
-                      </p>
-                      {project.description && (
-                        <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-                          {project.description}
-                        </p>
-                      )}
-                    </div>
-                    <div className="flex items-center text-yellow-500 ml-3">
-                      <Star className="h-3 w-3 mr-1" />
-                      <span className="text-sm font-medium">{project.stars}</span>
-                    </div>
-                  </div>
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        </div>
-
-        {/* Enhanced GitHub Profile CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-          viewport={{ once: true }}
-          className="text-center"
-        >
-          <div className="relative inline-block">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 rounded-2xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-gradient-x"></div>
-            <a
-              href="https://github.com/Nonilas"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="relative group inline-flex items-center justify-center px-8 py-4 text-white font-semibold rounded-2xl bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-gray-900 transition-all duration-300 transform hover:scale-105 shadow-2xl"
-            >
-              <div className="flex items-center space-x-3">
-                <motion.div
-                  animate={{ rotate: [0, 360] }}
-                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                >
-                  <Github className="h-6 w-6" />
-                </motion.div>
-                <span className="text-lg">Explore My GitHub</span>
-                <motion.div
-                  animate={{ x: [0, 5, 0] }}
-                  transition={{ duration: 1.5, repeat: Infinity }}
-                >
-                  <TrendingUp className="h-5 w-5" />
-                </motion.div>
-              </div>
-            </a>
           </div>
-          <p className="mt-4 text-sm text-gray-600 dark:text-gray-400">
-            Follow my coding journey • {stats.contributionsThisYear} contributions this year
-          </p>
+
+          {/* Technologies We Master */}
+          <div className="mt-12 text-center">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">
+              Technologies We Master
+            </h3>
+            <div className="flex flex-wrap justify-center gap-8 mb-8">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiReact className="text-4xl text-[#61DAFB]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">React</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiNextdotjs className="text-4xl text-black dark:text-white" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Next.js</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiPython className="text-4xl text-[#3776AB]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Python</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiTypescript className="text-4xl text-[#3178C6]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">TypeScript</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiPytorch className="text-4xl text-[#EE4C2C]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">PyTorch</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiAmazon className="text-4xl text-[#FF9900]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">AWS</span>
+              </div>
+            </div>
+            <div className="flex flex-wrap justify-center gap-8">
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiNodedotjs className="text-4xl text-[#339933]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Node.js</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiMongodb className="text-4xl text-[#47A248]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">MongoDB</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiPostgresql className="text-4xl text-[#4169E1]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">PostgreSQL</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiDocker className="text-4xl text-[#2496ED]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Docker</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiTailwindcss className="text-4xl text-[#06B6D4]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Tailwind CSS</span>
+              </div>
+              <div className="flex flex-col items-center">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-gray-700 rounded-lg flex items-center justify-center">
+                  <SiJupyter className="text-4xl text-[#F37626]" />
+                </div>
+                <span className="text-sm mt-2 text-gray-600 dark:text-gray-400">Jupyter</span>
+              </div>
+            </div>
+            <p className="mt-8 text-gray-600 dark:text-gray-400">
+              Don't see your technology? No problem! We're always learning and adapting to new tools.
+            </p>
+            <button className="mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg hover:bg-orange-600 transition-colors">
+              Discuss Your Tech Requirements
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

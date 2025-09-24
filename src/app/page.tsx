@@ -3,10 +3,10 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
-import GitHubStatsSection from '@/components/sections/GitHubStats';
 import { getFeaturedProjects } from '@/utils/github';
 import ProjectCard from '@/components/ui/ProjectCard';
 import FadeInSection from '@/components/ui/FadeInSection';
+import { Monitor, Server, Brain, Cloud } from 'lucide-react';
 import type { GitHubProject } from '@/utils/github';
 
 export default function Home() {
@@ -30,6 +30,73 @@ export default function Home() {
 
     loadProjects();
   }, []);
+
+
+  const techCategories = [
+    {
+      title: 'Frontend',
+      icon: <Monitor className="h-6 w-6 " />,
+      items: [
+        { name: 'React', slug: 'react' },
+        { name: 'Next.js', slug: 'nextdotjs' },
+        { name: 'TypeScript', slug: 'typescript' },
+        { name: 'Tailwind CSS', slug: 'tailwindcss' },
+        { name: 'Vue.js', slug: 'vuedotjs' },
+        { name: 'Angular', slug: 'angular' },
+      ],
+    },
+    {
+      title: 'Backend',
+      icon: <Server className="h-6 w-6 " />,
+      items: [
+        { name: 'Node.js', slug: 'nodedotjs' },
+        { name: 'Python', slug: 'python' },
+        { name: 'Jupyter', slug: 'jupyter' },
+        { name: 'Express.js', slug: 'express' },
+        { name: 'FastAPI', slug: 'fastapi' },
+        { name: 'PostgreSQL', slug: 'postgresql' },
+      ],
+    },
+    {
+      title: 'AI & Machine Learning',
+      icon: <Brain className="h-6 w-6 " />,
+      items: [
+        { name: 'TensorFlow', slug: 'tensorflow' },
+        { name: 'PyTorch', slug: 'pytorch' },
+        { name: 'LangChain', slug: 'langchain' },
+        { name: 'OpenAI API', slug: 'openai' },
+        { name: 'Hugging Face', slug: 'huggingface' },
+        { name: 'Scikit-learn', slug: 'scikitlearn' },
+      ],
+    },
+    {
+      title: 'Cloud & DevOps',
+      icon: <Cloud className="h-6 w-6 " />,
+      items: [
+        { name: 'AWS', slug: 'amazonaws' },
+        { name: 'Google Cloud', slug: 'googlecloud' },
+        { name: 'Docker', slug: 'docker' },
+        { name: 'Kubernetes', slug: 'kubernetes' },
+        { name: 'MongoDB', slug: 'mongodb' },
+        { name: 'Vercel', slug: 'vercel' },
+      ],
+    },
+  ];
+
+  const masteredTechnologies = [
+    { name: 'React', slug: 'react' },
+    { name: 'Next.js', slug: 'nextdotjs' },
+    { name: 'Python', slug: 'python' },
+    { name: 'TypeScript', slug: 'typescript' },
+    { name: 'PyTorch', slug: 'pytorch' },
+    { name: 'AWS', slug: 'amazonaws' },
+    { name: 'Node.js', slug: 'nodedotjs' },
+    { name: 'MongoDB', slug: 'mongodb' },
+    { name: 'PostgreSQL', slug: 'postgresql' },
+    { name: 'Docker', slug: 'docker' },
+    { name: 'Tailwind CSS', slug: 'tailwindcss' },
+    { name: 'Jupyter', slug: 'jupyter' },
+  ];
 
   return (
     <main className="min-h-screen">
@@ -77,12 +144,12 @@ export default function Home() {
                     Kassandra Properties VIP
                   </h3>
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
-                    Enterprise-grade construction & real estate platform featuring property management, 
-                    Stripe payment processing, 3D property tours, booking system, and full CMS. 
-                    Built with Next.js 15, React 19, Prisma, and Three.js.
+                    Enterprise-grade construction & real estate platform featuring property listings, 
+                    property management, and full Admin CMS with Supabase. 
+                    Built with Next.js 15, React 19, Prisma, and Supabase.
                   </p>
                   <div className="flex flex-wrap gap-2 mb-6">
-                    {['Next.js', 'TypeScript', 'Stripe', 'Prisma', 'Three.js', 'NextAuth'].map((tech) => (
+                    {['Next.js', 'TypeScript', 'Supabase', 'Prisma', 'Admin CMS', 'NextAuth'].map((tech) => (
                       <span key={tech} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-lg text-sm">
                         {tech}
                       </span>
@@ -90,15 +157,27 @@ export default function Home() {
                   </div>
                   <div className="flex gap-4">
                     <a 
+                      href="https://construction-company-gamma.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-4 py-2 bg-blue-600 dark:bg-blue-500 text-white rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                      </svg>
+                      View Live Site
+                    </a>
+                    <a 
                       href="https://github.com/Nonilas/construction-company"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-4 py-2 bg-gray-900 dark:bg-white dark:text-gray-900 text-white rounded-lg hover:opacity-90 transition"
+                      className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition"
                     >
                       <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                       </svg>
-                      View Code
+                      GitHub
                     </a>
                   </div>
                 </div>
@@ -373,181 +452,209 @@ export default function Home() {
       </section>
       </FadeInSection>
       
-      {/* Skills Section - Simplified */}
+
+      {/* Technology Stack Section - Enhanced Design */}
       <FadeInSection>
-      <section className="py-16 relative overflow-hidden">
-        {/* Subtle background effect */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800 z-0"></div>
-        
-        <div className="container mx-auto px-4 max-w-6xl relative z-10">
+      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-950/50 dark:to-gray-900">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-600/20 blur-3xl animate-pulse"></div>
+          <div className="absolute -bottom-40 -left-40 h-80 w-80 rounded-full bg-gradient-to-tr from-green-400/20 to-blue-600/20 blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-gradient-to-br from-purple-400/10 to-pink-600/10 blur-3xl animate-pulse" style={{ animationDelay: '4s' }}></div>
+        </div>
+
+        <div className="container mx-auto px-4 max-w-7xl relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
           >
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Skills &amp; Technologies
+            <motion.div
+              initial={{ scale: 0 }}
+              animate={{ scale: 1 }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 mb-6"
+            >
+              <span className="text-sm font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                TECHNOLOGY STACK
+              </span>
+              <span className="text-orange-500">⚡</span>
+            </motion.div>
+            
+            <h2 className="text-5xl font-bold mb-6">
+              <span className="text-gray-900 dark:text-white">Technology </span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-400">
+                Stack
+              </span>
             </h2>
-            <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-              These are some of the technologies I work with regularly.
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Leveraging cutting-edge technologies to deliver exceptional solutions
+            </p>
+            <p className="text-lg text-gray-500 dark:text-gray-400 max-w-2xl mx-auto mt-2">
+              A carefully curated toolkit spanning modern frontend frameworks, resilient backend systems, AI research, and cloud infrastructure.
             </p>
           </motion.div>
-          
-          {/* Categorized Skills Grid */}
-          <div className="space-y-12">
-            {/* AI/ML Skills */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
-                🤖 AI & Machine Learning
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  { name: 'Python', level: 95 },
-                  { name: 'PyTorch', level: 90 },
-                  { name: 'TensorFlow', level: 85 },
-                  { name: 'scikit-learn', level: 90 },
-                  { name: 'Computer Vision', level: 85 },
-                  { name: 'Deep Learning', level: 88 },
-                  { name: 'MATLAB', level: 80 },
-                  { name: 'NumPy/Pandas', level: 92 }
-                ].map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-purple-500 
-                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <div className="flex flex-col items-center">
-                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
-                        {skill.name}
-                      </span>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
-                        <motion.div
-                          className="bg-purple-500 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                        />
-                      </div>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
 
-            {/* Full-Stack Development */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
-                💻 Full-Stack Development
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  { name: 'TypeScript', level: 90 },
-                  { name: 'JavaScript', level: 92 },
-                  { name: 'React', level: 88 },
-                  { name: 'Next.js', level: 85 },
-                  { name: 'Node.js', level: 82 },
-                  { name: 'Prisma', level: 80 },
-                  { name: 'HTML/CSS', level: 90 },
-                  { name: 'Tailwind CSS', level: 85 },
-                  { name: 'C#', level: 85 },
-                  { name: '.NET/MAUI', level: 82 },
-                  { name: 'ASP.NET Core', level: 78 },
-                  { name: 'Three.js', level: 75 }
-                ].map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-blue-500 
-                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <div className="flex flex-col items-center">
-                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
-                        {skill.name}
-                      </span>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
-                        <motion.div
-                          className="bg-blue-500 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                        />
+          {/* Technology Categories Grid with Enhanced Design */}
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mb-16">
+            {techCategories.map((category, index) => {
+              const gradients = [
+                'from-blue-500 to-cyan-600',
+                'from-emerald-500 to-green-600',
+                'from-purple-500 to-pink-600',
+                'from-orange-500 to-red-600'
+              ];
+              const bgGradients = [
+                'from-blue-50 to-cyan-50 dark:from-blue-950/20 dark:to-cyan-950/20',
+                'from-emerald-50 to-green-50 dark:from-emerald-950/20 dark:to-green-950/20',
+                'from-purple-50 to-pink-50 dark:from-purple-950/20 dark:to-pink-950/20',
+                'from-orange-50 to-red-50 dark:from-orange-950/20 dark:to-red-950/20'
+              ];
+              
+              return (
+                <motion.div
+                  key={category.title}
+                  initial={{ opacity: 0, y: 30, rotateY: -30 }}
+                  animate={{ opacity: 1, y: 0, rotateY: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ 
+                    y: -8,
+                    transition: { duration: 0.2 }
+                  }}
+                  className="group relative"
+                >
+                  {/* Card glow effect on hover */}
+                  <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${gradients[index]} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-300`}></div>
+                  
+                  <div className={`relative bg-gradient-to-br ${bgGradients[index]} backdrop-blur-sm rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-lg group-hover:shadow-2xl transition-all duration-300 overflow-hidden`}>
+                    {/* Animated gradient header */}
+                    <div className={`h-2 bg-gradient-to-r ${gradients[index]}`}></div>
+                    
+                    <div className="px-6 py-5">
+                      <div className="flex items-center justify-between mb-4">
+                        <div className="flex items-center gap-3">
+                          <motion.div 
+                            whileHover={{ rotate: 360 }}
+                            transition={{ duration: 0.5 }}
+                            className={`flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${gradients[index]} shadow-lg`}
+                          >
+                            <div className="text-white">{category.icon}</div>
+                          </motion.div>
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900 dark:text-white">{category.title}</h3>
+                            <span className="text-xs text-gray-500 dark:text-gray-400"></span>
+                          </div>
+                        </div>
                       </div>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
-                    </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-
-            {/* Data & Cloud */}
-            <div>
-              <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-200 mb-6 text-center">
-                ☁️ Data & Cloud Technologies
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-                {[
-                  { name: 'PostgreSQL', level: 85 },
-                  { name: 'MongoDB', level: 80 },
-                  { name: 'Supabase', level: 83 },
-                  { name: 'SQLite', level: 80 },
-                  { name: 'Azure', level: 75 },
-                  { name: 'Docker', level: 70 },
-                  { name: 'Git', level: 90 },
-                  { name: 'REST APIs', level: 88 },
-                  { name: 'GraphQL', level: 70 },
-                  { name: 'Stripe API', level: 82 },
-                  { name: 'NextAuth.js', level: 85 },
-                  { name: 'Entity Framework', level: 78 }
-                ].map((skill, index) => (
-                  <motion.div
-                    key={skill.name}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.3, delay: index * 0.05 }}
-                    className="bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border-t-4 border-green-500 
-                              transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
-                  >
-                    <div className="flex flex-col items-center">
-                      <span className="text-gray-700 dark:text-gray-200 font-medium mb-2 text-sm">
-                        {skill.name}
-                      </span>
-                      <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 mb-1">
-                        <motion.div
-                          className="bg-green-500 h-2 rounded-full"
-                          initial={{ width: 0 }}
-                          animate={{ width: `${skill.level}%` }}
-                          transition={{ duration: 1, delay: index * 0.1 }}
-                        />
+                      
+                      <div className="space-y-2">
+                        {category.items.map((item, itemIndex) => (
+                          <motion.div
+                            key={item.name}
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: index * 0.1 + itemIndex * 0.05 }}
+                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-white/50 dark:hover:bg-gray-800/50 transition-colors group/item"
+                          >
+                            <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-50 dark:bg-gray-800 shadow-md group-hover/item:shadow-lg transition-all border border-gray-200 dark:border-gray-700">
+                              <img
+                                src={`https://cdn.simpleicons.org/${item.slug}`}
+                                alt={item.name}
+                                className="h-6 w-6"
+                                loading="lazy"
+                                onError={(e) => {
+                                  e.currentTarget.style.display = 'none';
+                                  if (e.currentTarget.nextElementSibling) {
+                                    (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'flex';
+                                  }
+                                }}
+                              />
+                              <span className="hidden text-xs font-bold text-gray-600 dark:text-gray-400 items-center justify-center">
+                                {item.name.slice(0, 3).toUpperCase()}
+                              </span>
+                            </div>
+                            <span className="text-sm font-medium text-gray-700 dark:text-gray-300 group-hover/item:text-gray-900 dark:group-hover/item:text-white transition-colors">
+                              {item.name}
+                            </span>
+                          </motion.div>
+                        ))}
                       </div>
-                      <span className="text-xs text-gray-500 dark:text-gray-400">
-                        {skill.level}%
-                      </span>
                     </div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
+                  </div>
+                </motion.div>
+              );
+            })}
           </div>
+
+          {/* Technologies We Master - Bottom Grid */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mt-16"
+          >
+            <h3 className="text-2xl font-bold text-center text-gray-900 dark:text-white mb-8">
+              Technologies I Master
+            </h3>
+            <p className="text-center text-gray-600 dark:text-gray-300 mb-10 max-w-2xl mx-auto">
+              Hands-on experience with production deployments, research prototypes, and collaborative engineering environments.
+            </p>
+            
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-4 max-w-5xl mx-auto">
+              {masteredTechnologies.map((tech, index) => (
+                <motion.div
+                  key={tech.name}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ 
+                    duration: 0.4,
+                    delay: index * 0.05,
+                    type: "spring",
+                    stiffness: 200
+                  }}
+                  whileHover={{ 
+                    scale: 1.1,
+                    rotate: [0, -5, 5, -5, 0],
+                    transition: { duration: 0.3 }
+                  }}
+                  className="group"
+                >
+                  <div className="relative bg-white dark:bg-gray-800 rounded-2xl p-4 shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 dark:border-gray-700 overflow-hidden">
+                    {/* Hover gradient effect */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500/0 to-purple-600/0 group-hover:from-blue-500/10 group-hover:to-purple-600/10 transition-all duration-300"></div>
+                    
+                    <div className="relative">
+                      <div className="h-14 w-14 mx-auto mb-3 rounded-xl bg-gray-50 dark:bg-gray-800 flex items-center justify-center shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300 border border-gray-200 dark:border-gray-700">
+                        <img
+                          src={`https://cdn.simpleicons.org/${tech.slug}`}
+                          alt={tech.name}
+                          className="h-8 w-8"
+                          loading="lazy"
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            if (e.currentTarget.nextElementSibling) {
+                              (e.currentTarget.nextElementSibling as HTMLElement).style.display = 'block';
+                            }
+                          }}
+                        />
+                        <span className="hidden text-lg font-bold text-gray-600 dark:text-gray-400">
+                          {tech.name.slice(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                      <p className="text-center text-xs font-semibold text-gray-700 dark:text-gray-300 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-blue-600 group-hover:to-purple-600 transition-all duration-300">
+                        {tech.name}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
       </FadeInSection>
 
-      {/* GitHub Stats Section */}
-      <FadeInSection>
-      <GitHubStatsSection />
-      </FadeInSection>
-      
       {/* Space-Themed CTA Section */}
       <FadeInSection delay={0.2}>
       <section className="py-16 md:py-20 relative overflow-hidden">

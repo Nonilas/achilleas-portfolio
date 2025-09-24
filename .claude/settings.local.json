@@ -5,7 +5,8 @@
       "mcp__ide__getDiagnostics",
       "Bash(npm run build:*)",
       "Read(//c/Users/achil/Downloads/construction-company/**)",
-      "Read(//c/KassandraTech/**)"
+      "Read(//c/KassandraTech/**)",
+      "Bash(npm install:*)"
     ],
     "deny": [],
     "ask": []

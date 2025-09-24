@@ -278,7 +278,7 @@ export default function Home() {
                   </h4>
                   <div className="rounded-xl overflow-hidden shadow-2xl bg-gray-900">
                     <video 
-                      src="/media1.mp4"
+                      src="/Media1.mp4"
                       className="w-full"
                       controls
                       muted
@@ -331,7 +331,7 @@ export default function Home() {
                     {/* Detection Image */}
                     <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800">
                       <img 
-                        src="/detection.png" 
+                        src="/Detection.png" 
                         alt="Contrail Detection Visualization"
                         className="w-full h-40 object-cover"
                       />

@@ -5,7 +5,6 @@ import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { getFeaturedProjects } from '@/utils/github';
 import ProjectCard from '@/components/ui/ProjectCard';
-import FadeInSection from '@/components/ui/FadeInSection';
 import { Monitor, Server, Brain, Cloud } from 'lucide-react';
 import type { GitHubProject } from '@/utils/github';
 
@@ -104,16 +103,15 @@ export default function Home() {
       <Hero />
       
       {/* Portfolio Showcase - Visual Project Display */}
-      <FadeInSection>
-      <section className="py-8 md:py-12 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
+      <section className="py-2 md:py-4 bg-gradient-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-800">
         <div className="container mx-auto px-4 max-w-7xl">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center mb-12"
+            className="text-center mb-4 md:mb-8"
           >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-2 md:mb-4">
               My Portfolio
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
@@ -868,12 +866,10 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      </FadeInSection>
       
 
       {/* Technology Stack Section - Enhanced Design */}
-      <FadeInSection>
-      <section className="py-20 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-950/50 dark:to-gray-900">
+      <section className="py-8 md:py-12 relative overflow-hidden bg-gradient-to-b from-white via-gray-50/50 to-white dark:from-gray-900 dark:via-gray-950/50 dark:to-gray-900">
         {/* Animated background elements */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute -top-40 -right-40 h-80 w-80 rounded-full bg-gradient-to-br from-blue-400/20 to-purple-600/20 blur-3xl animate-pulse"></div>
@@ -1071,11 +1067,9 @@ export default function Home() {
           </motion.div>
         </div>
       </section>
-      </FadeInSection>
 
       {/* Space-Themed CTA Section */}
-      <FadeInSection delay={0.2}>
-      <section className="py-8 md:py-12 relative overflow-hidden">
+      <section className="py-6 md:py-10 relative overflow-hidden">
         {/* Starry space background */}
         <div className="absolute inset-0 bg-gradient-to-b from-blue-900 via-indigo-900 to-purple-900 z-0"></div>
         
@@ -1218,7 +1212,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-      </FadeInSection>
     </main>
   );
 }

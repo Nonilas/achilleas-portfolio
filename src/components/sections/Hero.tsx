@@ -228,7 +228,7 @@ public class AppointmentService {
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-96 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg shadow-2xl overflow-hidden"
+      className="relative w-full h-64 md:h-80 lg:h-96 bg-gradient-to-br from-blue-900 to-purple-900 rounded-lg shadow-2xl overflow-hidden"
     >
       {/* Neural network background - only render on client */}
       {isClient && (
@@ -332,7 +332,7 @@ public class AppointmentService {
 
 export default function Hero() {
   return (
-    <section className="py-8 md:py-12 lg:py-20 overflow-hidden">
+    <section className="hero-section py-4 md:py-8 lg:py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Left side: Text content */}

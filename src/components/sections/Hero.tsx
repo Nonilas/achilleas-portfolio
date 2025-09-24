@@ -353,7 +353,7 @@ export default function Hero() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-6 md:mb-8"
             >
-              A passionate Data Science & AI student specializing in machine learning, computer vision, full-stack development, and .NET/C# applications.
+              A passionate Data Science & AI graduate specializing in machine learning, computer vision, AI engineering, and full-stack development.
             </motion.p>
             
             <motion.div 

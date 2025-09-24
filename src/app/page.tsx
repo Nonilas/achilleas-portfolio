@@ -201,6 +201,462 @@ export default function Home() {
             </div>
           </motion.div>
 
+          {/* Thesis Project Showcase - Full Width */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="mb-12"
+          >
+            <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 dark:from-indigo-950/30 dark:via-purple-950/30 dark:to-blue-950/30 rounded-2xl shadow-2xl overflow-hidden border border-indigo-200 dark:border-indigo-800">
+              {/* Header with Grade Badge */}
+              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">
+                        Bachelor Thesis
+                      </span>
+                      <span className="px-3 py-1 bg-yellow-400/20 backdrop-blur rounded-full text-sm font-semibold flex items-center gap-1">
+                        <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                        </svg>
+                        Grade: 9/10
+                      </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                      AI-Powered Aviation Contrail Monitoring System
+                    </h3>
+                    <p className="text-white/90 text-sm md:text-base">
+                      EUROCONTROL MUAC • Feb 2025 - July 2025
+                    </p>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold">40%</div>
+                      <div className="text-sm text-white/80">of aviation warming</div>
+                      <div className="text-xs text-white/70">from contrail-cirrus</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="p-6 md:p-8">
+                {/* Impact Statement */}
+                <div className="bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl p-6 mb-8">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                    <svg className="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                    </svg>
+                    Breakthrough Achievement
+                  </h4>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                    Engineered the first validated end-to-end AI pipeline for ground-based contrail monitoring, combining computer vision, 
+                    multi-object tracking, and flight data correlation. This pioneering prototype transforms ground-camera imagery into 
+                    flight-resolved contrail datasets with 71.75% attribution accuracy, a major leap beyond prior work. The system enables 
+                    real-time monitoring and mitigation strategies for aviation's hidden climate footprint, where contrails contribute 
+                    ~40% of aviation's total warming effect.
+                  </p>
+                  {/* Download Thesis Button */}
+                  <div className="flex justify-center">
+                    <a
+                      href="/Thesis_AchilleasLeivadiotis.pdf"
+                      download="Thesis_AchilleasLeivadiotis.pdf"
+                      className="inline-flex items-center px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg transition-colors shadow-lg hover:shadow-xl"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                      </svg>
+                      Download Full Thesis (PDF)
+                    </a>
+                  </div>
+                </div>
+
+                {/* Tracking Video - Full Width */}
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">
+                    Multi-Object Tracking Demonstration
+                  </h4>
+                  <div className="rounded-xl overflow-hidden shadow-2xl">
+                    <video 
+                      src="/media1.mp4" 
+                      className="w-full"
+                      controls
+                      muted
+                      playsInline
+                      style={{ maxHeight: '500px', objectFit: 'contain' }}
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                  <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-3">
+                    Norfair tracking algorithm demonstrating superior performance with MOTA: 43.3% and IDF1: 67.9%
+                  </p>
+                </div>
+
+                {/* 3-Stage Pipeline */}
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  {/* Stage 1: Detection */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Stage 1: Detection</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Custom Detectron2 Pipeline</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Mask R-CNN (ResNet-101 FPN)</strong> optimized for contrail morphology
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>~65% mask mAP</strong> for segmentation
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>&gt;90% class accuracy</strong> for short, thin, wide, cirrus types
+                        </p>
+                      </div>
+                    </div>
+                    {/* Detection Image */}
+                    <div className="mt-4 rounded-lg overflow-hidden shadow-md">
+                      <img 
+                        src="/detection.png" 
+                        alt="Contrail Detection Visualization"
+                        className="w-full h-40 object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* Stage 2: Tracking */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-purple-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Stage 2: Tracking</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Temporal Association</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          Evaluated <strong>DeepSORT vs Norfair</strong> with 15s gaps
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>MOTA: 43.3%</strong> (vs 11.3%)
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>IDF1: 67.9%</strong> (vs 45.5%) - stable tracks
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Stage 3: Attribution */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-green-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Stage 3: Attribution</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Flight Matching</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Novel 4D→2D Methods</strong>: Geometric & Convolution
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>71.75% overall attribution</strong>
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>95-100%</strong> for short, <strong>50-77%</strong> for thin
+                        </p>
+                      </div>
+                    </div>
+                    {/* Security Notice for Attribution */}
+                    <div className="mt-4 bg-gradient-to-br from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30 rounded-lg p-4 border border-green-300 dark:border-green-700">
+                      <div className="flex items-start gap-2">
+                        <svg className="w-5 h-5 text-green-600 dark:text-green-400 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        <div>
+                          <p className="text-xs font-semibold text-green-700 dark:text-green-300 mb-1">
+                            Flight Data Protected
+                          </p>
+                          <p className="text-xs text-green-600 dark:text-green-400">
+                            Attribution visualization restricted due to EUROCONTROL security protocols
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Technical Stack */}
+                <div className="flex flex-wrap gap-2 justify-center">
+                  {['Python', 'Detectron2', 'DeepSORT', 'Norfair', 'Azure Databricks', 'Apache Spark', 'Computer Vision', 'PyTorch'].map((tech) => (
+                    <span key={tech} className="px-3 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full text-sm font-medium">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Equans MEP Automation Project */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-12"
+          >
+            <div className="bg-gradient-to-br from-orange-50 via-red-50 to-yellow-50 dark:from-orange-950/30 dark:via-red-950/30 dark:to-yellow-950/30 rounded-2xl shadow-2xl overflow-hidden border border-orange-200 dark:border-orange-800">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-orange-600 to-red-600 p-6 text-white">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">
+                        Team Project with Equans
+                      </span>
+                      <span className="px-3 py-1 bg-yellow-400/20 backdrop-blur rounded-full text-sm font-semibold">
+                        AI Lead Developer
+                      </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                      AI-Powered MEP Component Automation
+                    </h3>
+                    <p className="text-white/90 text-sm md:text-base">
+                      Revolutionizing Modular Construction with Automated MEP Placement
+                    </p>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold">&gt;50%</div>
+                      <div className="text-sm text-white/80">Resource Savings</div>
+                      <div className="text-xs text-white/70">in MEP modeling time</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="p-6 md:p-8">
+                {/* Project Overview */}
+                <div className="bg-gradient-to-r from-orange-100 to-red-100 dark:from-orange-900/30 dark:to-red-900/30 rounded-xl p-6 mb-8">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                    <svg className="w-6 h-6 text-orange-600 dark:text-orange-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"/>
+                    </svg>
+                    Innovation in Construction AI
+                  </h4>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    As AI Lead Developer, I designed and implemented a complete neural network system to automate Mechanical, 
+                    Electrical, and Plumbing (MEP) component placement in modular construction projects. This proof-of-concept 
+                    demonstrated how AI can drastically reduce manual MEP modeling time (currently consuming &gt;50% of project 
+                    resources) while improving accuracy and supporting scalable workflows.
+                  </p>
+                </div>
+
+                {/* Technical Implementation Grid */}
+                <div className="grid md:grid-cols-2 gap-6 mb-8">
+                  {/* AI System Architecture */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Dual Neural Network System</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">PyTorch Implementation</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Type Predictor</strong>: Determines which MEP component to place
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Location Predictor</strong>: Calculates precise (x,y,z) coordinates
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>CNN Enhancement</strong>: Context window for spatial consistency
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>~70% accuracy</strong> in type prediction
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Performance Metrics */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Superior Performance</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">vs Traditional Methods</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>AI System MAE: 1.1m</strong> placement error
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-yellow-500 mt-1">→</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          Expert System: ~2.3m MAE
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-red-500 mt-1">→</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          Random Baseline: ~4.0m MAE
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>2x improvement</strong> over expert systems
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Pipeline Components */}
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 mb-8">
+                  <h5 className="font-bold text-gray-900 dark:text-white mb-4">Complete Pipeline Implementation</h5>
+                  <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+                    <div className="text-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-3 mb-2 shadow">
+                        <svg className="w-8 h-8 mx-auto text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                        </svg>
+                      </div>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Data Extraction</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Revit → JSON</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-3 mb-2 shadow">
+                        <svg className="w-8 h-8 mx-auto text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+                        </svg>
+                      </div>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">AI Processing</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">PyTorch NNs</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-3 mb-2 shadow">
+                        <svg className="w-8 h-8 mx-auto text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                      </div>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Training</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">70% Accuracy</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-3 mb-2 shadow">
+                        <svg className="w-8 h-8 mx-auto text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"/>
+                        </svg>
+                      </div>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">3D Visualization</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">GUI Interface</p>
+                    </div>
+                    <div className="text-center">
+                      <div className="bg-white dark:bg-gray-700 rounded-lg p-3 mb-2 shadow">
+                        <svg className="w-8 h-8 mx-auto text-red-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                        </svg>
+                      </div>
+                      <p className="text-xs font-medium text-gray-700 dark:text-gray-300">Integration</p>
+                      <p className="text-xs text-gray-500 dark:text-gray-400">Back to Revit</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tech Stack and Download */}
+                <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                    {['PyTorch', 'Autodesk Revit', 'CNN', 'Python', '3D Modeling', 'JSON', 'OBJ Mesh'].map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 rounded-full text-sm font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  {/* Download Report Button */}
+                  <a
+                    href="/Draft_Report__Group_1_.pdf"
+                    download="Equans_MEP_Project_Report.pdf"
+                    className="inline-flex items-center px-6 py-3 bg-orange-600 hover:bg-orange-700 text-white rounded-lg transition-colors shadow-lg hover:shadow-xl"
+                  >
+                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    Download Project Report
+                  </a>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Grid of Other Projects */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {/* .NET MAUI Dental App */}
@@ -236,44 +692,6 @@ export default function Home() {
                   </span>
                   <span className="px-2 py-1 bg-cyan-100 dark:bg-cyan-900 text-cyan-700 dark:text-cyan-300 rounded text-xs">
                     SQLite
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-
-            {/* AI MEP Predictor */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300"
-            >
-              <div className="h-48 bg-gradient-to-br from-purple-500 to-pink-600 p-6 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                <div className="text-white text-center z-10">
-                  <svg className="w-12 h-12 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
-                  </svg>
-                  <p className="font-semibold">AI/ML</p>
-                  <p className="text-sm opacity-80">3D Modeling</p>
-                </div>
-              </div>
-              <div className="p-6">
-                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                  3D MEP Component Predictor
-                </h4>
-                <p className="text-gray-600 dark:text-gray-300 text-sm mb-4">
-                  AI system for automatic MEP component placement in Revit models using PyTorch neural networks.
-                </p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
-                    PyTorch
-                  </span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
-                    Python
-                  </span>
-                  <span className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-700 dark:text-purple-300 rounded text-xs">
-                    Revit API
                   </span>
                 </div>
               </div>

@@ -104,6 +104,28 @@
     visibility: visible !important;
     opacity: 1 !important;
   }
+  
+  /* Fix video elements in iOS browsers */
+  video {
+    width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    background-color: #000;
+  }
+  
+  /* Ensure images load in LinkedIn browser */
+  img, picture {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+  }
+  
+  /* Next.js Image fix for LinkedIn */
+  img[loading="lazy"], 
+  img[loading="eager"] {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
 }
 
 /* Firefox scrollbar */

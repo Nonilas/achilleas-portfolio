@@ -276,16 +276,19 @@ export default function Home() {
                   <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-4 text-center">
                     Multi-Object Tracking Demonstration
                   </h4>
-                  <div className="rounded-xl overflow-hidden shadow-2xl bg-gray-900">
+                  <div className="rounded-xl overflow-hidden shadow-2xl bg-gray-900 relative" style={{ minHeight: '300px' }}>
                     <video 
-                      src="/Media1.mp4"
+                      src="/MediaVid.mp4"
                       className="w-full"
                       controls
                       muted
                       playsInline
                       autoPlay={false}
                       style={{ maxHeight: '500px', objectFit: 'contain' }}
-                    />
+                    >
+                      <source src="/media1.mp4" type="video/mp4" />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                   <p className="text-sm text-gray-500 dark:text-gray-400 text-center mt-3">
                     Norfair tracking algorithm demonstrating superior performance with MOTA: 43.3% and IDF1: 67.9%
@@ -329,11 +332,12 @@ export default function Home() {
                       </div>
                     </div>
                     {/* Detection Image */}
-                    <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800">
+                    <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800" style={{ minHeight: '160px' }}>
                       <img 
-                        src="/Detection.png" 
+                        src="/detection.png" 
                         alt="Contrail Detection Visualization"
                         className="w-full h-40 object-cover"
+                        style={{ display: 'block' }}
                       />
                     </div>
                   </div>

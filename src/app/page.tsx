@@ -278,7 +278,7 @@ export default function Home() {
                   </h4>
                   <div className="rounded-xl overflow-hidden shadow-2xl bg-gray-900 relative" style={{ minHeight: '300px' }}>
                     <video 
-                      src="/MediaVid.mp4"
+                      src="/MediaVid2.mp4"
                       className="w-full"
                       controls
                       muted

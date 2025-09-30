@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import Hero from '@/components/sections/Hero';
 import { getFeaturedProjects } from '@/utils/github';
@@ -333,11 +334,14 @@ export default function Home() {
                     </div>
                     {/* Detection Image */}
                     <div className="mt-4 rounded-lg overflow-hidden shadow-md bg-gray-100 dark:bg-gray-800" style={{ minHeight: '160px' }}>
-                      <img 
-                        src="/detection.png" 
+                      <Image
+                        src="/detection.png"
                         alt="Contrail Detection Visualization"
+                        width={3524}
+                        height={1958}
                         className="w-full h-40 object-cover"
                         style={{ display: 'block' }}
+                        priority
                       />
                     </div>
                   </div>

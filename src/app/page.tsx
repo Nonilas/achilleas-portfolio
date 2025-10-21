@@ -200,6 +200,243 @@ export default function Home() {
             </div>
           </motion.div>
 
+          {/* NeuraGallery - AI Image Organization Platform */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="mb-12"
+          >
+            <div className="bg-gradient-to-br from-pink-50 via-violet-50 to-purple-50 dark:from-pink-950/30 dark:via-violet-950/30 dark:to-purple-950/30 rounded-2xl shadow-2xl overflow-hidden border border-pink-200 dark:border-pink-800">
+              {/* Header */}
+              <div className="bg-gradient-to-r from-pink-600 to-violet-600 p-6 text-white">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between">
+                  <div>
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="px-3 py-1 bg-white/20 backdrop-blur rounded-full text-sm font-semibold">
+                        Full-Stack AI Application
+                      </span>
+                      <span className="px-3 py-1 bg-green-400/20 backdrop-blur rounded-full text-sm font-semibold">
+                        Production Deployed
+                      </span>
+                    </div>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                      NeuraGallery - AI-Powered Image Organization
+                    </h3>
+                    <p className="text-white/90 text-sm md:text-base">
+                      Intelligent Image Clustering with Deep Learning • Deployed on Azure
+                    </p>
+                  </div>
+                  <div className="mt-4 md:mt-0">
+                    <div className="text-center">
+                      <div className="text-3xl font-bold">95%</div>
+                      <div className="text-sm text-white/80">Cost Reduction</div>
+                      <div className="text-xs text-white/70">vs GPU instances</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Main Content */}
+              <div className="p-6 md:p-8">
+                {/* Impact Statement */}
+                <div className="bg-gradient-to-r from-pink-100 to-violet-100 dark:from-pink-900/30 dark:to-violet-900/30 rounded-xl p-6 mb-8">
+                  <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
+                    <svg className="w-6 h-6 text-pink-600 dark:text-pink-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Innovation in AI-Powered Organization
+                  </h4>
+                  <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                    Built a complete 3-tier microservices architecture that automatically organizes image collections using Meta's DINOv3
+                    vision transformer. The platform intelligently groups similar images without manual sorting, featuring hierarchical
+                    re-clustering with cached embeddings for instant analysis. Designed a cost-optimized cloud infrastructure running on
+                    CPU instances (~$30/month) instead of expensive GPU instances (~$550/month), achieving 95% cost reduction while
+                    maintaining full functionality.
+                  </p>
+                </div>
+
+                {/* Architecture Overview */}
+                <div className="grid md:grid-cols-3 gap-6 mb-8">
+                  {/* Frontend */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Frontend</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">Next.js PWA</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Next.js + TypeScript</strong> with Tailwind CSS
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Drag-and-drop</strong> interface
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Real-time progress</strong> tracking
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Backend API */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">Backend API</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">FastAPI</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Azure Blob Storage</strong> integration
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>MongoDB + Redis</strong> for data & caching
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>RESTful API</strong> with session management
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* ML Service */}
+                  <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-lg hover:shadow-xl transition-all">
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-600 rounded-lg flex items-center justify-center">
+                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-bold text-gray-900 dark:text-white">ML Service</h5>
+                        <p className="text-xs text-gray-500 dark:text-gray-400">PyTorch + DINOv3</p>
+                      </div>
+                    </div>
+                    <div className="space-y-3">
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>DINOv3 vision transformer</strong>
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>K-Means, HDBSCAN</strong> clustering
+                        </p>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <span className="text-green-500 mt-1">✓</span>
+                        <p className="text-sm text-gray-600 dark:text-gray-300">
+                          <strong>Embedding caching</strong> for instant re-clustering
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Key Features */}
+                <div className="bg-gray-50 dark:bg-gray-800/50 rounded-xl p-6 mb-8">
+                  <h5 className="font-bold text-gray-900 dark:text-white mb-4">Key Features & Innovations</h5>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-pink-600 dark:text-pink-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Hierarchical Re-clustering</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">Cached embeddings enable instant re-clustering without recomputing AI</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-pink-600 dark:text-pink-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z"/>
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Cost-Optimized Cloud</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">CPU-based architecture reduces costs by 95% vs GPU instances</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-pink-600 dark:text-pink-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Session-Based Processing</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">UUID sessions with data isolation for concurrent users</p>
+                      </div>
+                    </div>
+                    <div className="flex items-start gap-3">
+                      <svg className="w-5 h-5 text-pink-600 dark:text-pink-400 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 7v10c0 2.21 3.582 4 8 4s8-1.79 8-4V7M4 7c0 2.21 3.582 4 8 4s8-1.79 8-4M4 7c0-2.21 3.582-4 8-4s8 1.79 8 4"/>
+                      </svg>
+                      <div>
+                        <p className="font-semibold text-gray-900 dark:text-white text-sm">Scalable Storage</p>
+                        <p className="text-xs text-gray-600 dark:text-gray-400">Azure Blob Storage with SAS tokens for horizontal scaling</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tech Stack and Links */}
+                <div className="flex flex-col gap-6">
+                  <div className="flex flex-wrap gap-2 justify-center md:justify-start">
+                    {['PyTorch', 'DINOv3', 'FastAPI', 'Next.js', 'TypeScript', 'Azure', 'Docker', 'MongoDB', 'Redis'].map((tech) => (
+                      <span key={tech} className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm font-medium">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="flex flex-wrap gap-4 justify-center md:justify-start">
+                    <a
+                      href="https://dinov3-storyboard-app.vercel.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-700 hover:to-violet-700 text-white rounded-lg transition-all shadow-lg hover:shadow-xl"
+                    >
+                      <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+                      </svg>
+                      Try Live Demo
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
           {/* Thesis Project Showcase - Full Width */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}

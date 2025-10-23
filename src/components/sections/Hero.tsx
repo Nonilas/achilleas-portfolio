@@ -331,13 +331,20 @@ public class AppointmentService {
 };
 
 export default function Hero() {
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById('portfolio-section');
+    if (portfolioSection) {
+      portfolioSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <section className="hero-section py-4 md:py-8 lg:py-12">
       <div className="container mx-auto px-4">
         <div className="flex flex-col lg:flex-row items-center">
           {/* Left side: Text content */}
           <div className="lg:w-1/2 lg:pr-12">
-            <motion.h1 
+            <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -346,8 +353,8 @@ export default function Hero() {
               <span className="block">Hi, I&apos;m </span>
               <span className="block text-blue-600 dark:text-blue-400">Achilleas Leivadiotis</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -355,17 +362,30 @@ export default function Hero() {
             >
               A passionate Data Science & AI graduate specializing in machine learning, computer vision, AI engineering, and full-stack development.
             </motion.p>
-            
-            <motion.div 
+
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="flex flex-wrap gap-3 md:gap-4 mb-6 md:mb-8"
             >
-              <Link href="/projects" className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-300">
+              <button
+                onClick={scrollToPortfolio}
+                className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-colors duration-300"
+              >
                 View My Work
                 <ArrowRight className="ml-2 h-4 w-4 md:h-5 md:w-5" />
-              </Link>
+              </button>
+              <a
+                href="/AchilleasLeivadiotis_Resume.pdf"
+                download
+                className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-green-600 hover:bg-green-700 dark:bg-green-500 dark:hover:bg-green-600 transition-colors duration-300"
+              >
+                Download CV
+                <svg className="ml-2 h-4 w-4 md:h-5 md:w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </a>
               <Link href="/about" className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-gray-300 dark:border-gray-600 text-sm md:text-base font-medium rounded-md text-gray-700 dark:text-gray-200 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors duration-300">
                 About Me
               </Link>

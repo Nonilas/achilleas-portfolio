@@ -400,7 +400,7 @@ export default function Home() {
                 <div className="flex flex-col gap-6">
                   <div className="flex flex-wrap gap-2 justify-center md:justify-start">
                     {['PyTorch', 'DINOv3', 'FastAPI', 'Next.js', 'TypeScript', 'Azure', 'Docker', 'MongoDB', 'Redis'].map((tech) => (
-                      <span key={tech} className="px-3 py-1 bg-pink-100 dark:bg-pink-900/30 text-pink-700 dark:text-pink-300 rounded-full text-sm font-medium">
+                      <span key={tech} className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm font-medium">
                         {tech}
                       </span>
                     ))}
@@ -412,7 +412,7 @@ export default function Home() {
                       href="https://dinov3-storyboard-app.vercel.app"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-pink-600 to-violet-600 hover:from-pink-700 hover:to-violet-700 text-white rounded-lg transition-all shadow-lg hover:shadow-xl"
+                      className="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 text-white rounded-lg transition-all shadow-lg hover:shadow-xl"
                     >
                       <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>

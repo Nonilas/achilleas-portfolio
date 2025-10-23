@@ -228,7 +228,7 @@ export default function AboutPage() {
                   <div className="text-gray-600 dark:text-gray-300 mb-4">
                     <a
                       href="/Achilleas_Leivadiotis_Resume.pdf"
-                      download="Achilleas_Leivadiotis_Resume.pdf"
+                      download="AchilleasLeivadiotis_Resume.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center justify-center px-4 py-2 md:px-6 md:py-3 border border-transparent text-sm md:text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 dark:bg-blue-500 dark:hover:bg-blue-600 transition-all duration-300 hover:scale-105"

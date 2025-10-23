@@ -433,9 +433,9 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="mb-12"
           >
-            <div className="bg-gradient-to-br from-indigo-50 via-purple-50 to-blue-50 dark:from-indigo-950/30 dark:via-purple-950/30 dark:to-blue-950/30 rounded-2xl shadow-2xl overflow-hidden border border-indigo-200 dark:border-indigo-800">
+            <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
               {/* Header with Grade Badge */}
-              <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-6 text-white">
+              <div className="bg-gradient-to-r from-gray-700 to-gray-800 p-6 text-white">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between">
                   <div>
                     <div className="flex items-center gap-3 mb-2">
@@ -469,9 +469,9 @@ export default function Home() {
               {/* Main Content */}
               <div className="p-6 md:p-8">
                 {/* Impact Statement */}
-                <div className="bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-indigo-900/30 dark:to-purple-900/30 rounded-xl p-6 mb-8">
+                <div className="bg-gray-50 dark:bg-gray-900/30 rounded-xl p-6 mb-8 border border-gray-200 dark:border-gray-700">
                   <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-3 flex items-center gap-2">
-                    <svg className="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-6 h-6 text-gray-700 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
                     </svg>
                     Breakthrough Achievement
@@ -1043,22 +1043,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* View All Projects Card */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-700 dark:to-gray-800 rounded-xl shadow-lg overflow-hidden group hover:shadow-2xl transition-all duration-300 flex items-center justify-center"
-            >
-              <a href="/projects" className="p-8 text-center group-hover:scale-105 transition-transform">
-                <svg className="w-12 h-12 mx-auto mb-4 text-gray-600 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/>
-                </svg>
-                <p className="text-xl font-semibold text-gray-700 dark:text-gray-200 mb-2">View All Projects</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Explore my complete portfolio</p>
-                <p className="text-sm text-blue-600 dark:text-blue-400 mt-2 group-hover:underline">Including GitHub repos →</p>
-              </a>
-            </motion.div>
+            
           </div>
 
           {/* Call to Action */}

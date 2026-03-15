@@ -39,6 +39,9 @@ export const metadata: Metadata = {
     'React',
     'Next.js',
   ],
+  icons: {
+    icon: '/icon.svg',
+  },
   authors: [{ name: 'Achilleas Leivadiotis' }],
   creator: 'Achilleas Leivadiotis',
   openGraph: {

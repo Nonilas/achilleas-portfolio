@@ -53,15 +53,25 @@ export default function WorkGridCard({ project }: WorkGridCardProps) {
           </span>
         )}
         {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={(e) => e.stopPropagation()}
-            className="flex items-center gap-1 text-[var(--color-accent-blue)] hover:underline"
+          <span
+            role="link"
+            tabIndex={0}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+            }}
+            onKeyDown={(e) => {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(project.liveUrl, '_blank', 'noopener,noreferrer');
+              }
+            }}
+            className="flex items-center gap-1 text-[var(--color-accent-blue)] hover:underline cursor-pointer"
           >
             Live <ExternalLink size={12} />
-          </a>
+          </span>
         )}
       </div>
     </article>

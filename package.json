@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@eslint/eslintrc": "^3.3.5",
     "@tailwindcss/postcss": "^4.0.16",
     "@vercel/analytics": "^1.5.0",
     "@vercel/speed-insights": "^1.2.0",
@@ -16,7 +17,7 @@
     "firebase-admin": "^13.2.0",
     "framer-motion": "^11.18.2",
     "lucide-react": "^0.484.0",
-    "next": "15.2.4",
+    "next": "^16.1.6",
     "nodemailer": "^6.10.0",
     "octokit": "^4.1.2",
     "react": "^18.2.0",
@@ -29,8 +30,8 @@
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
     "autoprefixer": "^10.4.21",
-    "eslint": "^8.56.0",
-    "eslint-config-next": "15.2.4",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.1.6",
     "postcss": "^8.5.3",
     "tailwindcss": "^4.0.17",
     "typescript": "^5.3.3"

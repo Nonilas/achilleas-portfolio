@@ -1,126 +1,90 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
-import { Menu, X, Moon, Sun } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { name: 'Work', path: '/work' },
+  { name: 'News', path: '/news' },
+  { name: 'About', path: '/about' },
+];
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const pathname = usePathname();
 
-  // Effect for handling dark mode
-  useEffect(() => {
-    // Check for saved preference or system preference
-    const isDark = localStorage.getItem('darkMode') === 'true' || 
-      (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches);
-    
-    setDarkMode(isDark);
-    
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-    }
-  }, []);
-
-  // Toggle dark mode
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    document.documentElement.classList.toggle('dark');
-    localStorage.setItem('darkMode', (!darkMode).toString());
-  };
-
-  // Navigation links
-  const navLinks = [
-    { name: 'Home', path: '/' },
-    { name: 'Projects', path: '/projects' },
-    { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
-  ];
-
   return (
-    <header className="fixed w-full bg-white dark:bg-gray-900 shadow-sm z-50 transition-colors duration-300">
-      <div className="container mx-auto px-4">
+    <header className="fixed w-full bg-[var(--color-bg)]/95 backdrop-blur-sm border-b border-[var(--color-border)] z-50">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <Link href="/" className="font-bold text-xl text-blue-600 dark:text-blue-400">
-            Achilleas L.
+          <Link href="/" className="font-bold text-xl tracking-tight">
+            Achilleas Leivadiotis.
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8 items-center">
+          <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className={`${
-                  pathname === link.path
-                    ? 'text-blue-600 dark:text-blue-400'
-                    : 'text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400'
-                } transition-colors duration-300`}
+                className={`text-sm font-medium transition-colors ${
+                  pathname === link.path || pathname?.startsWith(link.path + '/')
+                    ? 'text-[var(--color-text)]'
+                    : 'text-[var(--color-text-secondary)] hover:text-[var(--color-text)]'
+                }`}
               >
                 {link.name}
               </Link>
             ))}
-            
-            {/* Dark mode toggle */}
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
-              aria-label="Toggle dark mode"
+            <Link
+              href="/contact"
+              className="text-sm font-medium px-4 py-2 border-brutal hover:bg-[var(--color-accent-lime)] transition-colors"
             >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
+              Contact
+            </Link>
           </nav>
 
           {/* Mobile menu button */}
-          <div className="flex items-center md:hidden">
-            <button
-              onClick={toggleDarkMode}
-              className="p-2 mr-2 rounded-full text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
-              aria-label="Toggle dark mode"
-            >
-              {darkMode ? <Sun size={20} /> : <Moon size={20} />}
-            </button>
-            
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-md text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors duration-300"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden p-2"
+            aria-label="Toggle menu"
+          >
+            {isOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {isOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: 'auto' }}
-          exit={{ opacity: 0, height: 0 }}
-          transition={{ duration: 0.3 }}
-          className="md:hidden bg-white dark:bg-gray-900 shadow-lg"
-        >
-          <nav className="flex flex-col py-4">
+        <div className="md:hidden bg-[var(--color-bg)] border-b border-[var(--color-border)]">
+          <nav className="flex flex-col px-6 py-4 gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`${
-                  pathname === link.path
-                    ? 'text-blue-600 dark:text-blue-400 bg-gray-50 dark:bg-gray-800'
-                    : 'text-gray-700 dark:text-gray-200'
-                } px-4 py-3 hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors duration-300`}
+                className={`py-3 text-sm font-medium border-b border-[var(--color-border)] ${
+                  pathname === link.path || pathname?.startsWith(link.path + '/')
+                    ? 'text-[var(--color-text)]'
+                    : 'text-[var(--color-text-secondary)]'
+                }`}
               >
                 {link.name}
               </Link>
             ))}
+            <Link
+              href="/contact"
+              onClick={() => setIsOpen(false)}
+              className="mt-3 text-sm font-medium px-4 py-2 border-brutal text-center hover:bg-[var(--color-accent-lime)] transition-colors"
+            >
+              Contact
+            </Link>
           </nav>
-        </motion.div>
+        </div>
       )}
     </header>
   );

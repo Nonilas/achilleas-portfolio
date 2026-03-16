@@ -43,15 +43,6 @@ export const news: NewsItem[] = [
     sourceName: 'Anthropic',
   },
   {
-    title: 'EUROCONTROL pushes for greener ATM',
-    description:
-      'Air traffic management is evolving to factor in environmental impact, not just safety and efficiency. Altitude advisories, route optimization, and contrail avoidance are becoming operational priorities.',
-    category: 'aviation',
-    categoryLabel: 'Aviation',
-    categoryColor: '#0ea5e9',
-    date: '2025-11',
-  },
-  {
     title: 'Expo SDK 54 makes cross-platform mobile seamless',
     description:
       'Expo Router, Reanimated 4, and the new architecture make React Native feel truly native. Built two production mobile apps on this stack this year.',
@@ -95,15 +86,6 @@ export const news: NewsItem[] = [
     categoryLabel: 'Aviation',
     categoryColor: '#0ea5e9',
     date: '2025-06',
-  },
-  {
-    title: 'Vision transformers dominate image understanding',
-    description:
-      'DINOv2/v3, SAM, and foundation vision models are making task-specific CNNs less necessary. I used DINOv3 in NeuraGallery for zero-shot image clustering.',
-    category: 'ai-ml',
-    categoryLabel: 'AI / ML',
-    categoryColor: '#8b5cf6',
-    date: '2025-05',
   },
   {
     title: 'Consumer genomics meets population genetics',
